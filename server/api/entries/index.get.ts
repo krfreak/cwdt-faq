@@ -1,15 +1,5 @@
-import { Entry } from "~/server/models/entry.model";
+import * as EntriesData from "~/server/entries.json";
 
 export default defineEventHandler(async (event) => {
-  console.log("GET /api/entries");
-
-  try {
-    console.log("Find entries");
-    const entries = await Entry.find();
-    return {
-      entries,
-    };
-  } catch (err) {
-    console.error(err);
-  }
+  return EntriesData.entries;
 });

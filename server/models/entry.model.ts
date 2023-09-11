@@ -1,9 +1,6 @@
-import { Schema, model } from "mongoose";
-
-const EntrySchema = new Schema({
-  tags: { type: [String] },
-  title: { type: String },
-  text: { type: String },
-});
-
-export const Entry = model<any>("Entry", EntrySchema);
+export interface Entry {
+  id: string;
+  tags: string[];
+  title: string;
+  text: string;
+}

@@ -1,11 +1,11 @@
 <template>
-  <div class="buttons">
+  <div class="">
     <button
       v-for="tag in tags"
       @click="toggleFilter(tag)"
       :class="[
         filterStore.activeTags.includes(tag) ? 'bg-red-600' : 'bg-zinc-700',
-        'text-gray-200 hover:bg-red-600',
+        'text-gray-200 hover:bg-red-600 rounded p-2 mx-1',
       ]"
     >
       {{ tag }}

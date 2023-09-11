@@ -1,33 +1,26 @@
 <template>
-  <div class="content mx-auto">
+  <div class="flex flex-1 flex-col">
     <h1>Choose one or more tags to learn about stuff</h1>
-    <p v-if="tagPending">Loading data</p>
-    <FilterList v-else :tags="tags ? tags[0].tags.sort() : []"></FilterList>
+    <FilterList :tags="tags"></FilterList>
     <h1>Topics</h1>
-    <div v-if="!entryPending" v-for="entry in entries?.entries">
-      <EntryButton
-        v-if="
-          filterStore.activeTags.some((item) => entry.tags.includes(item)) ||
-          filterStore.activeTags.length == 0
-        "
-        :_id="entry._id"
-        :text="entry.title"
-        :tags="entry.tags"
-        @activate-entry="activateEntry"
-      ></EntryButton>
+    <div class="entry-list transition ease-in-out delay-75">
+      <TransitionGroup>
+        <EntryButton
+          v-for="entry in visibleEntries"
+          :key="entry.id"
+          :id="entry.id"
+          :text="entry.title"
+          :tags="entry.tags"
+          @activate-entry="activateEntry"
+        />
+      </TransitionGroup>
     </div>
     <div>
-      <EntryBody
+      <EntryModal
         v-if="filterStore.activeEntry"
-        :text="
-          entries?.entries.filter((a) => a?._id === filterStore.activeEntry)[0]
-            ?.text || ''
-        "
-        :title="
-          entries?.entries.filter((a) => a?._id === filterStore.activeEntry)[0]
-            ?.title || ''
-        "
-      ></EntryBody>
+        :text="filterStore.findById(filterStore.activeEntry)?.text || ''"
+        :title="filterStore.findById(filterStore.activeEntry)?.title || ''"
+      />
     </div>
   </div>
 </template>
@@ -35,21 +28,20 @@
 <script setup lang="ts">
 import { useFilterStore } from "~/stores/filters";
 const filterStore = useFilterStore();
-const activeFilters = filterStore.activeTags;
 
-const { data: entries, pending: entryPending } = await useLazyFetch(
-  "/api/entries"
+const entries = filterStore.entries;
+const visibleEntries = computed(() =>
+  filterStore.activeTags.length !== 0
+    ? entries.filter((entry) =>
+        filterStore.activeTags.some((item) => entry.tags.includes(item))
+      )
+    : entries
 );
-const { data: tags, pending: tagPending } = await useLazyFetch(
-  "/api/entries/tags",
-  {
-    transform: (a) => {
-      return a.data;
-    },
-  }
-);
+console.log(visibleEntries);
+const tags = filterStore.getAllTags().sort();
 function activateEntry(id: string) {
-  filterStore.setActiveEntry(id);
+  filterStore.activeEntry = id;
+  filterStore.openModal();
 }
 </script>
 

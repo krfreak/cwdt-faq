@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "id": "1",
+      "tags": ["resistance", "defence"],
+      "title": "How to get resistances",
+      "text": "To get resistances use some eldritch currency on your gear"
+    },
+    {
+      "id": "2",
+      "tags": ["maps", "death"],
+      "title": "What map mods can't we run?",
+      "text": "Reduced cooldown recovery rate<br/>Reduced flask charges gained"
+    },
+    {
+      "id": "3",
+      "tags": ["omni"],
+      "title": "Can we use Omniscience?",
+      "text": "It's bait but yes you can."
+    }
+  ]
+}

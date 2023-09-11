@@ -17,17 +17,19 @@
           class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
         >
           <div class="flex flex-shrink-0 items-center">
-            <img class="h-8 w-auto" src="/img/cwdt.png" alt="CWDT" />
+            <NuxtLink to="/"
+              ><img class="h-8 w-auto" src="/img/cwdt.png" alt="CWDT"
+            /></NuxtLink>
           </div>
           <div class="hidden sm:ml-6 sm:block">
-            <div class="flex space-x-4">
+            <div class="flex space-x-4 flex-1 space-y-0">
               <NuxtLink
                 v-for="item in navigation"
                 :key="item.name"
                 :to="item.href"
                 :class="[
-                  'text-gray-200 hover:bg-zinc-900 hover:text-white',
-                  'rounded-md px-3 py-2 text-sm font-medium',
+                  'text-gray-200 hover:bg-zinc-900',
+                  'rounded-md px-3 py-2 text-sm font-semibold uppercase',
                 ]"
                 >{{ item.name }}</NuxtLink
               >
@@ -46,7 +48,7 @@
           as="a"
           :class="[
             'text-gray-200 hover:bg-zinc-900 hover:text-white',
-            'block rounded-md px-3 py-2 text-base font-medium',
+            'block rounded-md px-3 py-1 text-base font-medium',
           ]"
           >{{ item.name }}
         </NuxtLink>
@@ -56,10 +58,10 @@
 </template>
 <script setup lang="ts">
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
-
+import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
+const route = useRoute();
 const navigation = [
-  { name: "CWDT", href: "/" },
+  { name: "Home", href: "/" },
   { name: "FAQ", href: "/faq" },
   { name: "Crafting", href: "/crafts" },
 ];
