@@ -1,14 +1,16 @@
 <template>
-  <div class="main bg-zinc-900 text-gray-200">
+  <div
+    class="main bg-zinc-900 text-gray-200 max-w-full max-h-full overflow-hidden text-center sm:text-left"
+  >
     <header>
       <Navbar />
     </header>
     <section class="section">
-      <div class="container m-5 flex flex-auto">
+      <div class="container mx-2 mt-2">
         <NuxtPage></NuxtPage>
       </div>
     </section>
-    <footer class="mx-2 px-2 my-auto z-100">
+    <footer class="mx-2 px-2 mt-auto z-100">
       <div class="flex space-x-4">
         <a
           href="https://discord.gg/jp9vQeHgWY"

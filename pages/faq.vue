@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-1 flex-col">
-    <h1>Choose one or more tags to learn about stuff</h1>
+    <h1 class="mb-2">Choose one or more tags to learn about stuff</h1>
     <FilterList :tags="tags"></FilterList>
-    <h1>Topics</h1>
+    <h1 class="mt-2">Topics</h1>
     <div class="entry-list transition ease-in-out delay-75">
       <TransitionGroup>
         <EntryButton
