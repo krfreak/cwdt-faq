@@ -24,6 +24,7 @@
     "bulma": "^0.9.4",
     "nuxt-server-utils": "^0.0.7",
     "postcss": "^8.4.29",
-    "sass": "^1.66.1"
+    "sass": "^1.66.1",
+    "vue3-markdown-it": "^1.0.10"
   }
 }
