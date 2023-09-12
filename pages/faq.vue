@@ -1,15 +1,19 @@
 <template>
-  <div class="flex flex-1 flex-col">
-    <h1 class="mb-2">Choose one or more tags to learn about stuff</h1>
-    <FilterList :tags="tags"></FilterList>
-    <h1 class="mt-2">Topics</h1>
-    <div class="entry-list transition ease-in-out delay-75">
+  <div class="flex flex-1 flex-col m-2">
+    <div class="text-center">
+      <h1 class="mb-2">Choose one or more tags to learn about stuff</h1>
+      <FilterList :tags="tags" />
+      <h1 class="mt-2">Topics</h1>
+    </div>
+    <div
+      class="entry-list transition ease-in-out delay-75 text-center sm:text-left"
+    >
       <TransitionGroup>
         <EntryButton
           v-for="entry in visibleEntries"
           :key="entry.id"
           :id="entry.id"
-          :text="entry.title"
+          :title="entry.title"
           :tags="entry.tags"
           @activate-entry="activateEntry"
         />
@@ -18,7 +22,7 @@
     <div>
       <EntryModal
         v-if="filterStore.activeEntry"
-        :text="filterStore.findById(filterStore.activeEntry)?.text || ''"
+        :path="filterStore.findById(filterStore.activeEntry)?.path || ''"
         :title="filterStore.findById(filterStore.activeEntry)?.title || ''"
       />
     </div>

@@ -29,6 +29,7 @@ export const useFilterStore = defineStore("filters", {
     },
     closeModal() {
       this.modalOpen = false;
+      this.activeEntry = "";
     },
     openModal() {
       this.modalOpen = true;

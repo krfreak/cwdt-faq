@@ -1,0 +1,18 @@
+You can do reflect and no regen maps
+
+Works
+
+Elemental reflect - you are reflect immune
+No Regen - We don't use regen, we use recoup
+
+Warning
+
+60% less Recovery Rate of Life and Energy Shield
+
+For these maps, disable RF, blood rage
+Try to get ignite immunity and corrupted blood immunity for these maps
+
+CANNOT DO - RED ALERT
+
+Reduced cooldown recovery rate
+Reduced flask charges gained
