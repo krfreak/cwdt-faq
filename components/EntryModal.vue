@@ -1,37 +1,39 @@
 <template>
-  <div v-if="modalOpen" class="modal-overlay" @click="closeModal">
-    <dialog
-      :open="modalOpen"
-      @close="closeModal"
-      class="rounded bg-zinc-700 p-2 text-gray-200 m-5 text-left sm:w-auto"
-    >
-      <ContentDoc
-        :path="path"
-        class="markdown-body bg-zinc-900 p-2 m-2 overflow-y-auto max-h-96 break-all hyphens-auto"
-      >
+  <dialog ref="dialogElement" class="modal bg-zinc-900 text-gray-200 text-left" @click="closeModal">
+    <div class="modal__content overflow-y-auto">
+      <ContentDoc :path="path" class="markdown-body break-all hyphens-auto">
         <template #not-found>
           <p>No content found.</p>
         </template>
       </ContentDoc>
-      <button
-        @click="closeModal"
-        class="rounded text-gray-200 hover:bg-red-400 p-2 ml-1 mt-2 sm:float-right bg-red-600"
-      >
-        Close
-      </button>
-    </dialog>
-  </div>
+    </div>
+    <div class="modal__footer bg-zinc-700">
+      <button class="rounded text-gray-200 hover:bg-red-400 p-2 bg-zinc-900" @click="emit('close')">Close</button>
+    </div>
+  </dialog>
 </template>
 
 <script setup lang="ts">
-import { useFilterStore } from "~/stores/filters";
 const props = defineProps<{
   title: string;
   path: string;
+  isOpen: boolean;
 }>();
+const emit = defineEmits(['close']);
+const dialogElement = ref<HTMLDialogElement | null>(null);
 
-console.log(props.path);
-const filterStore = useFilterStore();
-const modalOpen = computed(() => filterStore.modalOpen);
-const closeModal = () => filterStore.closeModal();
+function closeModal({ target }: MouseEvent): void {
+  if (target !== dialogElement.value) return;
+  emit('close');
+}
+
+effect(() => {
+  const dialog = dialogElement.value;
+  if (!dialog || dialog.open === props.isOpen) return;
+  if (props.isOpen) {
+    dialogElement.value?.showModal();
+  } else {
+    dialogElement.value?.close();
+  }
+});
 </script>
