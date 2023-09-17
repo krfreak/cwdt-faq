@@ -20,7 +20,13 @@
         </TransitionGroup>
       </div>
     </div>
-    <EntryModal v-if="filterStore.activeEntry" :path="filterStore.activeEntry._path || ''" :title="filterStore.activeEntry.title || ''" />
+    <EntryModal
+      v-if="filterStore.activeEntry"
+      :path="filterStore.activeEntry._path || ''"
+      :title="filterStore.activeEntry.title || ''"
+      :is-open="filterStore.modalOpen"
+      @close="filterStore.closeModal"
+    />
   </div>
 </template>
 s
