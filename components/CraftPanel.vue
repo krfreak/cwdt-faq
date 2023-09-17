@@ -1,6 +1,6 @@
 <template>
   <div class="border-4 rounded border-zinc-700 bg-zinc-900 mt-2 p-2">
-    <ContentDoc class="markdown-body" :path="path" :id="title" />
+    <ContentDoc :id="title" class="markdown-body" :path="path" />
   </div>
 </template>
 
