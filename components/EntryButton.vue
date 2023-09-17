@@ -1,5 +1,5 @@
 <template>
-  <button class="bg-zinc-700 text-gray-200 hover:bg-red-600 rounded p-2 mr-3" @click="emit('activateEntry', id)">
+  <button class="bg-zinc-700 text-gray-200 sm:hover:bg-red-600 rounded p-2 mr-3" @click="emit('activateEntry', id)">
     <span class="text -m-2">
       {{ title }}
     </span>

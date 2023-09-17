@@ -3,7 +3,7 @@
     <button
       v-for="tag in tags"
       :key="tag"
-      :class="[filterStore.activeTags.includes(tag) ? 'bg-red-600' : 'bg-zinc-700', 'text-gray-200 hover:bg-red-600 rounded p-2 m-1']"
+      :class="[filterStore.activeTags.includes(tag) ? 'bg-red-600' : 'bg-zinc-700', 'text-gray-200 sm:hover:bg-red-600 rounded p-2 m-1']"
       @click="toggleFilter(tag)"
     >
       {{ tag }}
