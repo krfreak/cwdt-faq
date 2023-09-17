@@ -7,4 +7,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     mongodbUri: process.env.MONGO_URL,
   },
+  experimental: {
+    watcher: "chokidar",
+  },
 });

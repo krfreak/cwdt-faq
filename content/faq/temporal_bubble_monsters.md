@@ -1,5 +1,5 @@
 # How to Kill Temporal Bubble Monsters
 
-Go inside the bubble
-Swap weapons many times
-Run in circles, the usual
+1. Go inside the bubble
+2. Swap weapons many times
+3. Run in circles doing 1. and 2.

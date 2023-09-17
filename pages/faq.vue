@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-1 flex-col m-2">
+  <div class="flex flex-1 flex-col m-1">
     <div class="text-center">
       <h1 class="mb-2">Choose one or more tags to learn about stuff</h1>
       <FilterList :tags="tags" />
