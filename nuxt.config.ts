@@ -1,13 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ["@/assets/css/main.css"],
+  css: ['@/assets/css/main.css'],
   devtools: { enabled: true },
-  modules: ["@pinia/nuxt", "@nuxtjs/tailwindcss", "@nuxt/content"],
+  modules: ['@nuxtjs/eslint-module', '@pinia/nuxt', '@nuxtjs/tailwindcss', '@nuxt/content'],
   content: {},
-  runtimeConfig: {
-    mongodbUri: process.env.MONGO_URL,
-  },
+  runtimeConfig: {},
   experimental: {
-    watcher: "chokidar",
+    watcher: 'chokidar',
   },
 });

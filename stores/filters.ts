@@ -1,7 +1,7 @@
-import { defineStore } from "pinia";
-import { Entry } from "~/server/models/entry.model";
+import { defineStore } from 'pinia';
+import { Entry } from '~/server/models/entry.model';
 
-export const useFilterStore = defineStore("filters", {
+export const useFilterStore = defineStore('filters', {
   state: () => ({
     activeTags: [] as string[],
     activeEntry: null as Entry | null,
@@ -10,11 +10,8 @@ export const useFilterStore = defineStore("filters", {
   }),
   actions: {
     async loadEntries() {
-      const { data: entryData } = await useAsyncData("faq", () => {
-        return queryContent()
-          .where({ _dir: "faq" })
-          .only(["title", "description", "_id", "tags", "_path"])
-          .find();
+      const { data: entryData } = await useAsyncData('faq', () => {
+        return queryContent().where({ _dir: 'faq' }).only(['title', 'description', '_id', 'tags', '_path']).find();
       });
       this.entries = entryData.value as Entry[];
     },
@@ -29,8 +26,7 @@ export const useFilterStore = defineStore("filters", {
       this.activeTags = [];
     },
     getAllTags() {
-      if (this.entries)
-        return [...new Set(this.entries.map((a) => a.tags).flat())];
+      if (this.entries) return [...new Set(this.entries.map((a) => a.tags).flat())];
       else return [];
     },
     findById(id: string): Entry | undefined {
