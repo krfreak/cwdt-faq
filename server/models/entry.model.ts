@@ -1,6 +1,7 @@
 export interface Entry {
-  id: string;
+  _id: string;
   tags: string[];
   title: string;
-  path: string;
+  description: string;
+  _path: string;
 }

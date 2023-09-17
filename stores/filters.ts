@@ -4,35 +4,47 @@ import { Entry } from "~/server/models/entry.model";
 export const useFilterStore = defineStore("filters", {
   state: () => ({
     activeTags: [] as string[],
-    activeEntry: "",
+    activeEntry: null as Entry | null,
     modalOpen: false,
     entries: [] as Entry[],
-    visibleEntries: [] as Entry[],
   }),
   actions: {
     async loadEntries() {
-      const { data: entryData } = await useFetch("/api/entries");
-      this.entries = entryData;
+      const { data: entryData } = await useAsyncData("faq", () => {
+        return queryContent()
+          .where({ _dir: "faq" })
+          .only(["title", "description", "_id", "tags", "_path"])
+          .find();
+      });
+      this.entries = entryData.value as Entry[];
     },
-    addTag(tag: string) {
+    addActiveTag(tag: string) {
       this.activeTags.push(tag);
       this.activeTags = [...new Set(this.activeTags)];
     },
-    removeTag(tag: string) {
+    removeActiveTag(tag: string) {
       this.activeTags = this.activeTags.filter((a) => a !== tag);
     },
+    removeAllActiveTags() {
+      this.activeTags = [];
+    },
     getAllTags() {
-      return [...new Set(this.entries.map((a) => a.tags).flat())];
+      if (this.entries)
+        return [...new Set(this.entries.map((a) => a.tags).flat())];
+      else return [];
     },
     findById(id: string): Entry | undefined {
-      return this.entries.find((a) => a.id === id);
+      return this.entries.find((a) => a._id === id);
     },
     closeModal() {
       this.modalOpen = false;
-      this.activeEntry = "";
+      this.activeEntry = null;
     },
     openModal() {
       this.modalOpen = true;
+    },
+    setActiveEntry(entry: Entry | null) {
+      this.activeEntry = entry;
     },
   },
 });

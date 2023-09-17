@@ -1,50 +1,60 @@
 <template>
   <div class="flex flex-1 flex-col m-1">
-    <div class="text-center">
-      <h1 class="mb-2">Choose one or more tags to learn about stuff</h1>
-      <FilterList :tags="tags" />
-      <h1 class="mt-2">Topics</h1>
-    </div>
-    <div
-      class="entry-list transition ease-in-out delay-75 text-center sm:text-left"
-    >
-      <TransitionGroup>
-        <EntryButton
-          v-for="entry in visibleEntries"
-          :key="entry.id"
-          :id="entry.id"
-          :title="entry.title"
-          :tags="entry.tags"
-          @activate-entry="activateEntry"
-        />
-      </TransitionGroup>
-    </div>
-    <div>
-      <EntryModal
-        v-if="filterStore.activeEntry"
-        :path="filterStore.findById(filterStore.activeEntry)?.path || ''"
-        :title="filterStore.findById(filterStore.activeEntry)?.title || ''"
-      />
+    <div v-if="pending">Loading content...</div>
+    <div v-else>
+      <div class="text-center">
+        <h1 class="mb-2">Choose one or more tags to learn about stuff</h1>
+        <FilterList :tags="tags" />
+        <h1 class="mt-2">Topics</h1>
+      </div>
+      <div
+        class="entry-list transition ease-in-out delay-75 text-center sm:text-left"
+      >
+        <TransitionGroup>
+          <EntryButton
+            v-for="entry in visibleEntries"
+            :key="entry._id"
+            :id="entry._id"
+            :title="entry.title"
+            :tags="entry.tags"
+            @activate-entry="activateEntry"
+          />
+        </TransitionGroup>
+      </div>
     </div>
   </div>
+  <EntryModal
+    v-if="filterStore.activeEntry"
+    :path="filterStore.activeEntry._path || ''"
+    :title="filterStore.activeEntry.title || ''"
+  />
 </template>
-
+s
 <script setup lang="ts">
 import { useFilterStore } from "~/stores/filters";
 const filterStore = useFilterStore();
 
-const entries = filterStore.entries;
+const { data: entryData, pending } = await useAsyncData(() => {
+  return queryContent()
+    .where({ _dir: "faq" })
+    .only(["title", "description", "_id", "tags", "_path"])
+    .find();
+});
+
 const visibleEntries = computed(() =>
   filterStore.activeTags.length !== 0
-    ? entries.filter((entry) =>
+    ? entryData.value?.filter((entry) =>
         filterStore.activeTags.some((item) => entry.tags.includes(item))
       )
-    : entries
+    : entryData.value
 );
-console.log(visibleEntries);
-const tags = filterStore.getAllTags().sort();
+
+const tags = computed(() => {
+  return [...new Set(entryData.value?.map((a) => a.tags).flat())];
+});
+
 function activateEntry(id: string) {
-  filterStore.activeEntry = id;
+  filterStore.setActiveEntry(entryData.value?.find((a) => a._id === id));
   filterStore.openModal();
 }
 </script>

@@ -11,6 +11,12 @@
       {{ tag }}
     </button>
   </div>
+  <button
+    class="bg-zinc-700 border-amber-300 text-gray-200 sm:hover:bg-red-600 rounded p-2 mt-2"
+    @click="clearFilters"
+  >
+    Clear all filters
+  </button>
 </template>
 
 <script setup lang="ts">
@@ -24,14 +30,21 @@ function toggleFilter(tag: string) {
   const buttons = document.querySelectorAll("button");
   const tagIncluded = filterStore.activeTags.includes(tag);
   if (tagIncluded) {
-    filterStore.removeTag(tag);
+    filterStore.removeActiveTag(tag);
   } else {
-    filterStore.addTag(tag);
+    filterStore.addActiveTag(tag);
   }
   buttons.forEach((btn) => {
     if (btn.innerText === tag) btn.classList.toggle("active-filter");
   });
 }
-</script>
 
+function clearFilters() {
+  filterStore.removeAllActiveTags();
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach((btn) => {
+    btn.classList.remove("active-filter");
+  });
+}
+</script>
 <style></style>

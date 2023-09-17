@@ -1,4 +1,10 @@
-# How to use a Rare Ring In 3.22
+---
+tags: ["ring"]
+title: How to use a rare ring
+description: How to set up the build to be able to use a rare ring
+---
+
+# How to use a Rare Ring
 
 This will require 3 divergent CWDTs, one for Body, one for Weapon and one for Helm.
 

@@ -6,7 +6,7 @@
       <Navbar />
     </header>
     <section class="section">
-      <div class="container mx-2 mt-2">
+      <div class="m-2 sm:w-auto">
         <NuxtPage></NuxtPage>
       </div>
     </section>
@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { useFilterStore } from "./stores/filters";
 
-const ready = await useFilterStore().loadEntries();
+const ready = useFilterStore().loadEntries();
 </script>
 
 <style></style>
