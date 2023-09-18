@@ -1,0 +1,52 @@
+---
+tags: ['cdr', 'breakpoints', 'jewels']
+title: 'How do the To Dust jewels work?'
+description: 'Learn how these jewels work'
+---
+
+# How do the To Dust Jewels work?
+
+To meet the CDR breakpoints we need to adjust the skeleton duration with these jewels.
+
+### 9% CDR
+
+We need to achieve 99% reduction with the Window of Opportunity Notable allocated
+
+Anomalous Minion Speed - 40 \
+To Dust - 34 \
+Skill Tree - 25
+
+40 + 25 + 34 = 99
+
+Without the skill points
+
+Anomalous Minion Speed - 40 \
+To Dust - 59
+
+40 + 59 = 99
+
+### 27% CDR
+
+We need to achieve 99% reduction with the Window of Opportunity Notable and the Less Duration Mastery allocated
+
+Anomalous Minion Speed - 40 \
+To Dust - 34 \
+Skill Tree - 25
+
+40 + 25 + 34 = 99
+
+Without skill points in the tree we can achieve 98% and need to use a Less Duration Gem at 4/20 linked to Summon Skeletons
+
+Anomalous Minion Speed - 40 \
+To Dust - 58
+
+40 + 58 = 98
+
+### 52% CDR
+
+98% Reduction with 20/20 less duration
+
+Less Duration Mastery not required. \
+20/20 Less Duration Gem Required
+
+Reach 98% with To Dusts only or you can use Tree Window of Opportunity
