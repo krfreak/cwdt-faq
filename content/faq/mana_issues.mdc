@@ -18,7 +18,9 @@ description: 'Resolving mana issues'
 
 ##### Trigger order of CWDT
 
-Trigger order: If multiple triggers proc simultaneously, skills triggered follow a set priority. First, skill gems in socket 1 of any piece of gear will apply before any skill gems in socket 2. Items with less than 6 sockets still follow this pattern from socket 1.
+Trigger order: If multiple triggers proc simultaneously, skills triggered follow a set priority.\
+First, skill gems in socket 1 of any piece of gear will apply before any skill gems in socket 2. \
+Items with less than 6 sockets still follow this pattern from socket 1.
 
 ```
 (1)⇒(2)
