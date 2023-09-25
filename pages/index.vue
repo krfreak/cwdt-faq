@@ -1,6 +1,20 @@
 <template>
-  <div class="content">
-    <h1>Hello fellow looper</h1>
+  <div class="content ml-1">
+    <article>
+      <section>
+        <h1 class="text-3xl">Hello fellow CWDT enjoyer!</h1>
+        <p>Need to learn something about the build? Head over to the <NuxtLink class="text-blue-600 sm:hover:underline" to="/faq/">FAQ</NuxtLink>.</p>
+        <p>
+          Need a written guide? Head over to the
+          <a href="https://www.pathofexile.com/forum/view-thread/3261066/page/1" class="text-blue-600 sm:hover:underline" target="_blank">forum</a>.
+        </p>
+        <p>Need crafting advice? Check out the <NuxtLink to="/crafts" class="text-blue-600 sm:hover:underline">Crafting section</NuxtLink>.</p>
+        <p>
+          Example PoBs for a plethora of build variations can be found at <NuxtLink to="/pobs" class="text-blue-600 sm:hover:underline">Example PoBs</NuxtLink>.
+        </p>
+        <p>Need to calculate your Flasks or Loop Setup check the <NuxtLink to="/calculator" class="text-blue-600 sm:hover:underline">Calculator</NuxtLink>.</p>
+      </section>
+    </article>
   </div>
 </template>
 

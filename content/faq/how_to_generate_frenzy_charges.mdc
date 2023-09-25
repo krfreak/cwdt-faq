@@ -23,7 +23,7 @@ Blood Rage adds 25% chance to generate a Frenzy Charge on kill
 
 The Green Dream adds: \
 Passives granting Cold Resistance or all Elemental Resistances in Radius\
-also grant an equal chance to gain a Frenzy Charge on Kill
+also grant an equal chance to gain a Frenzy Charge on Kill\
 Putting it somewhere and adding cold resistance via tattoos yields a high chance.
 
 ## Annoint Disciple of the Slaughter
@@ -32,4 +32,5 @@ There are better annointments but you can also annoint Disciple of the Slaughter
 
 ## Legacy The Green Nightmare
 
-Legacy The Green Nightmare had `Passives granting Cold Resistance or all Elemental Resistances in Radius also grant an equal chance to gain a Frenzy Charge on Kill`
+Legacy The Green Nightmare had \
+`Passives granting Cold Resistance or all Elemental Resistances in Radius also grant an equal chance to gain a Frenzy Charge on Kill`

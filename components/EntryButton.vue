@@ -1,9 +1,9 @@
 <template>
-  <button class="bg-zinc-700 text-gray-200 sm:hover:bg-red-600 rounded p-2 mr-3" @click="emit('activateEntry', id)">
-    <span class="text -m-2">
+  <button class="bg-zinc-700 text-gray-200 sm:hover:bg-red-600 text-left rounded p-2 max-h-40" @click="emit('activateEntry', id)">
+    <span class="text m-2 float-left relative">
       {{ title }}
     </span>
-    <span class="tags">
+    <span class="text-xs tags uppercase p-2 float-right relative">
       {{ tags ? tags.join(' | ') : '' }}
     </span>
   </button>

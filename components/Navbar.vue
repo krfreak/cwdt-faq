@@ -55,5 +55,6 @@ const navigation = [
   { name: 'FAQ', href: '/faq' },
   { name: 'Crafting', href: '/crafts' },
   { name: 'Example PoBs', href: '/pobs' },
+  { name: 'Calculator', href: '/calculator' },
 ];
 </script>
