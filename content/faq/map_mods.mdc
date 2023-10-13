@@ -24,3 +24,7 @@ Try to get ignite immunity and corrupted blood immunity for these maps
 
 Reduced cooldown recovery rate\
 Reduced flask charges gained
+
+### Regex for the mods
+
+`"!ask|s rec|coo"`

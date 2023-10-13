@@ -1,0 +1,65 @@
+---
+tags: ['cluster']
+title: 'Which cluster jewels to run?'
+description: 'Explains which cluster jewels can be run.'
+---
+
+# Which cluster jewels to run?
+
+## Large Cluster Jewels
+
+### On a budget
+
+Get a large cluster jewel with at least Prismatic Heart and Stormrider. These can roll on cold damage or spell damage jewels.
+
+[Trade Link](https://www.pathofexile.com/trade/search/Ancestor/OEVKeQlHE)
+
+Add any source of at least 1 lightning damage to your spells to trigger Stormrider together with the Elementalist ascendancy node.
+
+### Better options
+
+If you get enough skill points you can run more large clusters. Here you'll want to include Blanketed Snow and Sadist.
+
+Add any source of at least 1 fire damage to your spells to trigger Sadist's ignite damage increase.
+
+[Trade Link](https://www.pathofexile.com/trade/search/Ancestor/WVvdYgvCm)
+
+## Medium Cluster Jewels for Flasks
+
+To get enough flasks charges to sustain 2-4 flasks simultaneously some flask duration medium cluster jewels are needed.
+
+You will need at least two of them. Or use the calculator to see where you're at and get whatever is needed accordingly.
+
+### On a budget
+
+They should have either Fasting + 25% increased effect of small passives or Fasting + Distilled Perfection and come with 6 passives.
+
+[Trade Link](https://www.pathofexile.com/trade/search/Ancestor/Ebo63ZyC5)
+
+You can craft them yourself easily with a bunch of alterations and regal orbs.
+
+### Higher Budget Options
+
+You can opt to get some more expensive jewels with 35% increased effect and 3% flask charges gained on them.
+
+[Trade Link](https://www.pathofexile.com/trade/search/Ancestor/rXP8g37CQ)
+
+They're cheaper to craft them than to buy them. Take around 2k Alterations and get a ilvl 84 base and spam until you get the mods.
+
+[Trade Link](https://www.pathofexile.com/trade/search/Ancestor/dgYmXDpCJ)
+
+Helpful regex:\
+`"3% increased flask charges|35%"` for one of the mods\
+`"3% i.{21}s" "35% i.{14}t"` for both simultaneously
+
+Stop if you got both of them as regalling them might brick the jewel with an +armour mod.
+
+If you got currency to burn you can get or create a fractured base with either of those affixes and spam away until you hit Fasting as a notable for maximum flask stuff.
+
+## Medium Cluster Jewels for Damage
+
+Get some projectile damage medium cluster jewels with 4-5 passives.
+
+For notables get any combination of Repeater, Eye to Eye, Shrieking Bolts or Aerodynamics if you want additional pierce.
+
+[Trade Link](https://www.pathofexile.com/trade/search/Ancestor/Zb6Bw78TQ)

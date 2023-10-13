@@ -1,6 +1,7 @@
 <template>
   <div class="content m-2 mr-6 sm:m-5 sm:min-w-fit">
     <h1>Crafting Cookbook</h1>
+    <p class="italic">If you happen to find better ways to craft these items please do tell us in the discord!</p>
     <div v-if="!pending">
       <button
         v-for="craft in crafts"
@@ -16,11 +17,6 @@
   </div>
 </template>
 <script setup lang="ts">
-// interface Craft {
-//   title: string;
-//   text: string;
-// }
-
 function scrollToTarget(id: string) {
   const el = document.getElementById(id);
   if (el) {
