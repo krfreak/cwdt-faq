@@ -1,0 +1,117 @@
+---
+tags: ['gems']
+title: 'What gem links do we run?'
+description: 'Sugesstions for gem setups depending on setup'
+---
+
+# What gem links do we run?
+
+## Base Setup
+
+### Helmet
+
+#### Normal CWDT
+
+Important: Summon Skeletons has to be in the top left socket.
+
+Anomalous Summon Skeletons 11/20% - Anomalous Minion Speed x/20% - Forbidden Rite 1 - Normal CWDT 11
+
+#### Divergent CWDT
+
+Important: Summon Skeletons has to be in the top left socket. You'll need 3 divergent CWDT in total with this setup.
+
+Your Summon Skeletons needs to summon 4 skeletons so you need to get the level to 21 somehow.
+
+Ways to achieve 21 Summon Skeletons: corruption, +1 all int skill gem tattoo, +1 all skill gem/+1 all int skill gem amulet, +2 empower support
+
+Anomalous Summon Skeletons 21/20% - Anomalous Minion Speed x/20% - Divergent CWDT 20/20% - Sniper's Mark|Frostbite|Elemental Weakness or +2 empower support if you cannot get the summon skeletons gem to 21 with other means
+
+#### With 52% CDR and Divergent CWDT
+
+Replace the 4th slot with Swift Affliction 1
+
+### Body Armour
+
+#### Skin of the Loyal or any other chest
+
+Important: Get a chest with a red socket in the top left slot and the blue socket for Ice Spear as far down the chain as possible. Your build will fail if your CWDT Gem gets higher than level 21.
+
+First slot: (Divergent) CWDT 20/20%
+
+Any slot: (Awakened) Greater Multiple Projectiles Support
+
+Sixth slot: (Divergent|Phantasmal) Ice Spear 20 or 21 depending on what your CWDT supports.
+
+Depending on the colours and budget available to you any combination of the following:
+
+Red gems:\
+Empower Support 3 or 4\
+Inspiration Support\
+Cruelty Support
+
+Blue gems:\
+Increased Critical Damage Support\
+(Awakened) Elemental Focus Support\
+Increased Critical Strikes Support if your crit chance with all projectiles for Ice Spear is abysmal
+
+Use elemental focus only if you apply a chill effect of 25-30% consistantly. Note: it will disable applying freeze/chill on your enemies with Ice Spear.
+
+Green gems:\
+(Awakened) Cold Penetration Support\
+(Awakened) Added Cold Damage Support\
+Hypothermia Support
+
+If you lack cold penetration use the cold penetraion support.
+
+#### Skin of the Lords
+
+The CWDT Gem needs to be 19/20% with this setup. Your build will fail if your CWDT Gem gets higher than level 21.
+
+### Weapon
+
+A 5-link setup is fine as it gives you another slot for supporting skills.
+
+#### Skills
+
+Depending on your setup you will want at least Freezing Pulse or Eye of Winter.
+
+First slot: (Divergent) CWDT 20/20%
+
+Choose whatever fits your setup best.
+
+Blue Gems:\
+Freezing Pulse or Eye of Winter\
+(Divergent) Bonechill Support\
+Creeping Frost\
+(Anomalous) Frostbite\
+Elemental Weakness\
+
+Green Gems:\
+Culling Strike Support\
+(Awakened) Cold Penetration Support\
+Sniper's Mark\
+
+### Gloves
+
+#### Divergent CWDT Setup
+
+If you opted for the CWDT Setup you need to put a Normal CWDT 12 in the top left socket and a Forbidden Rite 1 in the top right socket.
+
+## Optional Setup
+
+Put these wherever they fit.
+
+Hatred + (Divergent) Eternal Blessing Support\
+(Any quality type) Phase Run + Increased Duration (+ Enhance Support)\
+(Divergent) Righteous Fire (+ Enhance Support)\
+Flame Dash|Divergent Frostblink\
+(Phantasmal) Sigil of Power\
+
+Curses:
+(Anomalous) Frostbite\
+Elemental Weakness\
+Sniper's Mark\
+
+together with an appropriate CWDT or cast it yourself.
+
+Anomalous Temporal Rift (+ Enhance Support) if you want to get a big chunk of CDR.
