@@ -1,0 +1,29 @@
+---
+tags: ['3.23']
+title: 'What has changed in 3.23?'
+description: 'What has changed in 3.23 and needs to be looked at'
+---
+
+Thanks to SScouty in the discord for this list.
+
+# Changes
+
+Alternate quality gems no longer exist (existing versions will be changed to 'Superior' quality):\
+a. Anomalous Summon Skeletons gone - Replacement Option: Minion cluster with Blessed Rebirth.\
+b. Anomalous Minion speed gone - Replacement Option: More To Dust jewels.\
+c. Divergent CWDT gone - Replacement Option: Use the new CWDT that has 10% reduced as an effect of quality, we will need to compensate for this, potentially with higher level skeletons or two Heartbound Loop Rings.\
+d. Divergent RF gone - Replacement Option: Use normal RF, its a bit of a nerf, but unavoidable. At least we don't need to do damage with RF!
+
+Ashes nerf indirectly by removal of alt quality gems:\
+a. Until we know details of the new Transfigured Gems its hard to say whether or not ashes is "dead" or not. Replacement Option: Use a +1/2 amulet, since it was really close between them anyway.
+
+Omni nerf indirectly by removal of alt quality gems:\
+a. We potentially need to use two Heartbound loops, Omni greatly benefits from a rare ring. Full effects unknown, likely to be something of a nerf.
+
+Labyrinth enchantments (helmet/gloves/boots/belt) are removed - existing items remain as legacy:\
+a. Boot enchant for reduced mana cost is removed - Replacement Option: Use the crafted mana suffix on a flask. This is definitely a convenience nerf.\
+b. Helmet enchant for +1 Ice spear proj (or others) is gone - Replacement Options: None yet known, potentially a Transfigured gem option.\
+c. Belt / Glove enchants gone - Replacement options: none. Probably minimal impact for non-minmax builds.
+
+Ice Spear default quality changed (buff)\
+a. Quality now causes shards of ice in their second form to have +0-40% to Critical Strike Multiplier, instead of 0-40% increased Projectile Speed.
