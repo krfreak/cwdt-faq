@@ -11,7 +11,12 @@
     <footer class="px-2 bottom-0 left-0 right-0 z-10 fixed h-10 bg-zinc-700">
       <div class="flex space-x-4">
         <a href="https://discord.gg/jp9vQeHgWY" class="rounded-t-lg ring-2 ring-amber-500 p-2 bg-zinc-900 sm:hover:bg-zinc-700" target="_blank">Discord</a>
-        <a href="https://returnx.github.io/cwdt/" class="rounded-t-lg ring-2 ring-amber-500 p-2 bg-zinc-900 sm:hover:bg-zinc-700" target="_blank">Calculator</a>
+        <a
+          href="https://docs.google.com/spreadsheets/d/1N0J7Zi3PpQoMOeY3jBTltNk4PpRhQDZWF2xUYxidXRk/edit#gid=0"
+          class="rounded-t-lg ring-2 ring-amber-500 p-2 bg-zinc-900 sm:hover:bg-zinc-700"
+          target="_blank"
+          >Shopping List</a
+        >
       </div>
     </footer>
   </div>

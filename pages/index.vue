@@ -3,6 +3,7 @@
     <article>
       <section>
         <h1 class="text-3xl">Hello fellow CWDT enjoyer!</h1>
+        <p>Does the build still work? YES</p>
         <p>Need to learn something about the build? Head over to the <NuxtLink class="text-blue-600 sm:hover:underline" to="/faq/">FAQ</NuxtLink>.</p>
         <p>
           Need a written guide? Head over to the

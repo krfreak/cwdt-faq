@@ -12,21 +12,11 @@ description: 'Sugesstions for gem setups depending on setup'
 
 #### Normal CWDT
 
-Important: Summon Skeletons has to be in the top left socket.
+Important: Summon Skeletons has to be in the top left socket. You also need to make sure your Skeletons don't die so either make them super tanky or get a medium cluster jewel with Blessed Rebirth.
 
-Anomalous Summon Skeletons 11/20% - Anomalous Minion Speed x/20% - Forbidden Rite 1 - Normal CWDT 5
+Summon Skeletons 11 - Forbidden Rite 1 - Normal CWDT 5
 
-#### Divergent CWDT
-
-Important: Summon Skeletons has to be in the top left socket. You'll need 3 divergent CWDT in total with this setup.
-
-Your Summon Skeletons needs to summon 4 skeletons so you need to get the level to 21 somehow.
-
-Ways to achieve 21 Summon Skeletons: corruption, +1 all int skill gem tattoo, +1 all skill gem/+1 all int skill gem amulet, +2 empower support
-
-Anomalous Summon Skeletons 21/20% - Anomalous Minion Speed x/20% - Divergent CWDT 20/20% - Sniper's Mark|Frostbite|Elemental Weakness or +2 empower support if you cannot get the summon skeletons gem to 21 with other means
-
-#### With 52% CDR and Divergent CWDT
+#### With 52% CDR
 
 Replace the 4th slot with Swift Affliction 1
 
@@ -36,11 +26,11 @@ Replace the 4th slot with Swift Affliction 1
 
 Important: Get a chest with a red socket in the top left slot and the blue socket for Ice Spear as far down the chain as possible. Your build will fail if your CWDT Gem gets higher than level 21.
 
-First slot: (Divergent) CWDT 20/20%
+First slot: CWDT 20/20%
 
 Any slot: (Awakened) Greater Multiple Projectiles Support
 
-Sixth slot: (Divergent|Phantasmal) Ice Spear 20 or 21 depending on what your CWDT supports.
+Sixth slot: Ice Spear 20 depending on what your CWDT supports.
 
 Depending on the colours and budget available to you any combination of the following:
 
@@ -75,15 +65,15 @@ A 5-link setup is fine as it gives you another slot for supporting skills.
 
 Depending on your setup you will want at least Freezing Pulse or Eye of Winter.
 
-First slot: (Divergent) CWDT 20/20%
+First slot: CWDT 20/20%
 
 Choose whatever fits your setup best.
 
 Blue Gems:\
 Freezing Pulse or Eye of Winter\
-(Divergent) Bonechill Support\
+Bonechill Support\
 Creeping Frost\
-(Anomalous) Frostbite\
+Frostbite\
 Elemental Weakness\
 
 Green Gems:\
@@ -101,17 +91,15 @@ If you opted for the CWDT Setup you need to put a Normal CWDT 12 in the top left
 
 Put these wherever they fit.
 
-Hatred + (Divergent) Eternal Blessing Support\
-(Any quality type) Phase Run + Increased Duration (+ Enhance Support)\
-(Divergent) Righteous Fire (+ Enhance Support)\
-Flame Dash|Divergent Frostblink\
-(Phantasmal) Sigil of Power\
+Hatred + Eternal Blessing Support\
+Phase Run + Increased Duration (+ Enhance Support)\
+Righteous Fire (+ Enhance Support)\
+Flame Dash | Frostblink\
+Sigil of Power\
 
 Curses:
-(Anomalous) Frostbite\
+Frostbite\
 Elemental Weakness\
 Sniper's Mark\
 
 together with an appropriate CWDT or cast it yourself.
-
-Anomalous Temporal Rift (+ Enhance Support) if you want to get a big chunk of CDR.
