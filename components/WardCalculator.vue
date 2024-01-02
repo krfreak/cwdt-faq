@@ -1,22 +1,22 @@
 <template>
-  <form class="flex flex-col flex-wrap p-2 justify-start" @submit.prevent="">
+  <form class="flex flex-col flex-wrap p-2 justify-start maxform" @submit.prevent="">
     <h2 class="text-xl">Ward Calculator</h2>
     <label for="helmet">Helmet</label>
-    <input id="helmet" v-model="helmet" type="number" class="text-white bg-zinc-700" @input="calculateWard" />
+    <input id="helmet" v-model="helmet" type="number" class="text-white bg-zinc-700 p-1" @input="calculateWard" />
     <label for="gloves">Gloves</label>
-    <input id="gloves" v-model="gloves" type="number" class="text-white bg-zinc-700" @input="calculateWard" />
+    <input id="gloves" v-model="gloves" type="number" class="text-white bg-zinc-700 p-1" @input="calculateWard" />
     <label for="boots">Boots</label>
-    <input id="boots" v-model="boots" type="number" class="text-white bg-zinc-700" @input="calculateWard" />
+    <input id="boots" v-model="boots" type="number" class="text-white bg-zinc-700 p-1" @input="calculateWard" />
     <label for="flask">Flask increased ward %</label>
-    <input id="flask" v-model="flask" type="number" class="text-white bg-zinc-700" @input="calculateWard" />
+    <input id="flask" v-model="flask" type="number" class="text-white bg-zinc-700 p-1" @input="calculateWard" />
     <label for="flask_effect">Flask increased 25% increased effect?</label>
-    <input id="flask_effect" v-model="flaskEffect" type="checkbox" class="text-white bg-zinc-700" @input="calculateWard" />
+    <input id="flask_effect" v-model="flaskEffect" type="checkbox" class="text-white bg-zinc-700 p-1" @input="calculateWard" />
     <label for="armour">Armour Global Defences %</label>
-    <input id="armour" v-model="armour" type="number" class="text-white bg-zinc-700" @input="calculateWard" />
+    <input id="armour" v-model="armour" type="number" class="text-white bg-zinc-700 p-1" @input="calculateWard" />
     <label for="survival_secrets">Suvival Secrets?</label>
-    <input id="survival_secrets" v-model="survivalSecrets" type="checkbox" class="text-white bg-zinc-700" @input="calculateWard" />
+    <input id="survival_secrets" v-model="survivalSecrets" type="checkbox" class="text-white bg-zinc-700 p-1" @input="calculateWard" />
     <label for="staff_mastery">Staff Mastery?</label>
-    <input id="staff_mastery" v-model="staffMastery" type="checkbox" class="text-white bg-zinc-700" @input="calculateWard" />
+    <input id="staff_mastery" v-model="staffMastery" type="checkbox" class="text-white bg-zinc-700 p-1" @input="calculateWard" />
     <b>Total Ward: {{ totalWard }}</b>
   </form>
 </template>
@@ -46,7 +46,11 @@ const calculateWard = () => {
           flask.value * (flaskEffect.value === true ? (survivalSecrets.value === true ? 1.05 : flaskEffectMod) : 1)) /
           100),
     ) / 100;
-  console.log(`flaskValue = ${flaskValue}\nward = ${ward}\narmourValue = ${armourValue}`);
   totalWard.value = Math.round(Math.floor(ward * armourValue) * (survivalSecrets.value === true ? 0.44 : 0.3));
 };
 </script>
+<style>
+.maxform {
+  max-width: 200px;
+}
+</style>
