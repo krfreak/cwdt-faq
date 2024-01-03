@@ -17,6 +17,12 @@
           target="_blank"
           >Shopping List</a
         >
+        <a
+          href="https://docs.google.com/spreadsheets/d/14wtf8SEyx9p18hWDCYONMhA7UVLtjwavczgCblK5Shc"
+          class="rounded-t-lg ring-2 ring-amber-500 p-2 bg-zinc-900 sm:hover:bg-zinc-700"
+          target="_blank"
+          >Charms for 3.23</a
+        >
       </div>
     </footer>
   </div>
