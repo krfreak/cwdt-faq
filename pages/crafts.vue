@@ -18,9 +18,11 @@
 </template>
 <script setup lang="ts">
 function scrollToTarget(id: string) {
+  const yOffset = -74;
   const el = document.getElementById(id);
   if (el) {
-    el.scrollIntoView();
+    const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
   }
 }
 const { data: crafts, pending } = await useLazyAsyncData('faq', () => {
