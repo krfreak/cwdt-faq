@@ -1,7 +1,7 @@
 <template>
   <dialog ref="dialogElement" class="modal bg-zinc-900 text-gray-200 text-left" @click="closeModal" @keyup.esc="emit('close')" @keydown.esc="emit('close')">
     <div class="modal__content overflow-y-auto">
-      <ContentDoc :path="path" class="markdown-body break-all hyphens-auto">
+      <ContentDoc :path="path" class="markdown-body break-word hyphens-auto">
         <template #not-found>
           <p>No content found.</p>
         </template>

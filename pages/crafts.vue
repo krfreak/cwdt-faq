@@ -18,14 +18,17 @@
 </template>
 <script setup lang="ts">
 function scrollToTarget(id: string) {
-  const yOffset = -74;
+  const { navBottomLink, navKeyFromPath } = useContentHelpers();
+  const yOffset = 0;
   const el = document.getElementById(id);
-  if (el) {
-    const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-    window.scrollTo({ top: y, behavior: 'smooth' });
-  }
+  el?.scrollIntoView({ behavior: 'smooth' });
+  // if (el) {
+  //   const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+  //   window.scrollTo({ top: y, behavior: 'smooth' });
+  // }
+  // #window.location.hash = el.
 }
-const { data: crafts, pending } = await useLazyAsyncData('faq', () => {
+const { data: crafts, pending } = await useLazyAsyncData('crafts', () => {
   return queryContent().where({ _dir: 'crafts' }).only(['title', 'description', '_id', 'tags', '_path']).find();
 });
 </script>

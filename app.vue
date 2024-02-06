@@ -1,5 +1,5 @@
 <template>
-  <div class="main bg-zinc-900 text-gray-200 max-w-full max-h-full overflow-hidden text-center sm:text-left">
+  <div class="main bg-zinc-900 text-gray-200 max-w-full max-h-full overflow-hidden text-center sm:text-left" lang="en-US">
     <header>
       <Navbar class="fixed top-0 left-0 right-0 mb-10 z-50" />
     </header>
