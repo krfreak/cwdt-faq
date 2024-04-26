@@ -9,14 +9,14 @@
   </div>
 </template>
 <script setup lang="ts">
-import type { Entry } from '~/server/models/entry.model';
+import type { Entry } from '../../server/models/entry.model';
 const route = useRoute();
 const { data: entryData, pending } = await useAsyncData(() => {
   return queryContent().where({ _dir: 'faq' }).only(['title', 'description']).find();
 });
 const entry = (entryData.value?.find((a) => a._id === route.slug) ?? null) as Entry | null;
 useSeoMeta({
-  title: entry.title,
-  description: entry.description,
+  title: entry?.title ?? '',
+  description: entry?.description ?? '',
 });
 </script>

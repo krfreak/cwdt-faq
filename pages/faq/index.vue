@@ -31,8 +31,8 @@
 </template>
 s
 <script setup lang="ts">
-import type { Entry } from '~/server/models/entry.model';
-import { useFilterStore } from '~/stores/filters';
+import type { Entry } from '../../server/models/entry.model';
+import { useFilterStore } from '../../stores/filters';
 const filterStore = useFilterStore();
 const route = useRoute();
 
