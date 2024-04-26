@@ -8,7 +8,9 @@ export default defineNuxtConfig({
       anchorLinks: false,
     },
   },
-  runtimeConfig: {},
+  runtimeConfig: {
+    quiet: false,
+  },
   experimental: {
     watcher: 'chokidar',
   },
