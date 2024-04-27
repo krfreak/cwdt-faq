@@ -13,7 +13,7 @@
             v-for="entry in visibleEntries"
             :id="entry._id"
             :key="entry._id"
-            :title="entry.title"
+            :title="entry.title ?? ''"
             :tags="entry.tags"
             @activate-entry="activateEntry"
           />
@@ -31,8 +31,8 @@
 </template>
 s
 <script setup lang="ts">
-import type { Entry } from '../../server/models/entry.model';
-import { useFilterStore } from '../../stores/filters';
+import type { Entry } from '~/server/models/entry.model';
+import { useFilterStore } from '~/stores/filters';
 const filterStore = useFilterStore();
 const route = useRoute();
 

@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     markdown: {
       anchorLinks: false,
     },
+    documentDriven: true,
   },
   runtimeConfig: {
     quiet: false,
@@ -14,4 +15,5 @@ export default defineNuxtConfig({
   experimental: {
     watcher: 'chokidar',
   },
+  pages: true,
 });
