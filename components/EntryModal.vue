@@ -33,7 +33,7 @@ const input = ref(route.hash);
 const { text, isSupported, copied, copy } = useClipboard({ source: input });
 
 async function copyURL() {
-  await copy(window.location.host + props.path);
+  await copy('https://' + window.location.host + props.path);
 }
 
 function closeModal({ target }: MouseEvent): void {
