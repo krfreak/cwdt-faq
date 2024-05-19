@@ -16,6 +16,21 @@
         <p>Need to calculate your Flasks or Loop Setup check the <NuxtLink to="/calculator" class="text-blue-600 sm:hover:underline">Calculator</NuxtLink>.</p>
       </section>
     </article>
+    <article>
+      <section>
+        <p>Or perhaps you like a video about it?</p>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube-nocookie.com/embed/fC8LKqHDdmY?si=bMKd9abEtMbtAHDH"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </section>
+    </article>
   </div>
 </template>
 

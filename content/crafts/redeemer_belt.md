@@ -13,13 +13,13 @@ Scour it and use catalysts for life.
 Spam alteration orbs until you get either "increased flask charges used" or "increased flask effect duration".\
 Once you have one of those affixes, use a regal orb to have both of them (need stat on that).
 
-Clean prefixes by crafting "suffix cannot be changed" and use an orb of scouring.\
+Clean prefixes by crafting "suffixes cannot be changed" and use an orb of scouring.\
 Craft "suffixed cannot be changed".\
-Use Aisling and pray for a suffix (1/3 chance). If it is not a suffix, clean the prefixes again.\
+Use a Veiled Orb and pray for a suffix (1/3 chance). If it is not a suffix, clean the prefixes again.\
 Unveil to have "increased Cooldown Recovery Rate" (1/2 chance).\
 If it fails, scour the belt and craft again (or try to sell it).
 
 Once you have your three suffixes :\
-Craft "suffix cannot be changed", then harvest "add/remove life" until you are happy with the life tier.\
+Craft "suffixes cannot be changed", then harvest "add/remove life" until you are happy with the life tier.\
 Then craft "increased Damage".\
 Finally, slam an Redeemer's exalted orb : you have 2/3 to hit a good prefix, either "increased Cold Damage" or "increased Damage with Hits against Chilled Enemies"

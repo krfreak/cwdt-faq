@@ -35,7 +35,7 @@ Repeat the process until you get good resistance rolls in the suffix
 
 1. Make sure you have an open prefix.
 2. Craft Prefix cannot be changed in the suffix.
-3. Now Aisling to try to get a prefix
+3. Now use a Veiled Orb to try to get a prefix
 4. Unveil the prefix for Movement Speed
 
 If you don't get a Prefix from Aisling, you need to annul your Aisling suffix\

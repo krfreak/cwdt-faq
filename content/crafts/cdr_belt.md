@@ -26,16 +26,16 @@ Buy 20 Stygian Vise, Level 84+ bases from Trade or TFT
 
 Now you have 16+ CDR in suffix
 
-1. Craft Can Have 3 Crafted Modifiers
-2. Craft Suffix Cannot Be Changed (Buy the beast Wild Bristle Matron and kill it. This is cheaper than benchcraft)
-3. Now Scour the belt
-4. Craft Suffix Cannot Be Changed again
-5. Take the belt to Aisling. Do not Unveil yet.
-6. Bench Craft Mana
-7. Bench Craft Armor + ES hybrid mod or simply es/evasion any defense modifier
+1. Craft Can Have 3 Crafted Modifiers.
+2. Craft Suffixes Cannot Be Changed (Buy the beast Wild Bristle Matron and kill it. This is cheaper than benchcraft).
+3. Now Scour the belt.
+4. Craft Suffixes Cannot Be Changed again.
+5. Use a veiled orb so that the only prefix mod Suffixes Cannot Be Changed get replaced with the veiled mod. Do not Unveil yet!
+6. Bench Craft Mana.
+7. Bench Craft Armor + ES hybrid mod or simply es/evasion any defense modifier.
 8. Unveil and you will get life modifier. Apply fertile catalyst!
 9. Remove Crafted Modifiers using Bench.
-10. Finally Bench craft 15% flask duration
+10. Finally Bench craft 15% flask duration.
 
 See the image
 
@@ -44,12 +44,12 @@ See the image
 #### Option 2 - Gamble, but you can get T1 life.
 
 1. Craft Can Have 3 Crafted Modifiers
-2. Craft Suffix Cannot Be Changed
+2. Craft Suffixes Cannot Be Changed
 3. Harvest Reforge Life. Beaware it may fill all 3 prefixes.
-4. Repeat Suffix Cannot Be Changed & Reforge life until you are happy with life mod
+4. Repeat Suffixes Cannot Be Changed & Reforge life until you are happy with life mod
 
 #### Bonus
 
-In Phase 1 if you happen to regal T1/T2 flask effect duration then craft Suffix Cannot Be changed and Aisling and Pray for 16 CDR.
+In Phase 1 if you happen to regal T1/T2 flask effect duration then craft Suffixes Cannot Be changed and Aisling and Pray for 16 CDR.
 
 Crafting Cost - 6 divines lucky, 25 divines very unlucky

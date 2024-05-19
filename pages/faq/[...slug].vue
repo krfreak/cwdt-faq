@@ -9,10 +9,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import type { Entry } from '../../server/models/entry.model';
+import type { Entry } from '~/server/models/entry.model';
 const route = useRoute();
 const { data: entryData, pending } = await useAsyncData(() => {
-  return queryContent().where({ _dir: 'faq' }).only(['title', 'description', '_path']).find();
+  return queryContent('faq').only(['title', 'description', '_path']).find();
 });
 const entry = (entryData.value?.find((a) => a._path === route.params.slug) ?? null) as Entry | null;
 useSeoMeta({

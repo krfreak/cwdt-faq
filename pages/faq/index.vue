@@ -37,7 +37,7 @@ const filterStore = useFilterStore();
 const route = useRoute();
 
 const { data: entryData, pending } = await useAsyncData(() => {
-  return queryContent().where({ _dir: 'faq' }).only(['title', 'description', '_id', 'tags', '_path']).find();
+  return queryContent('faq').only(['title', 'description', '_id', 'tags', '_path']).find();
 });
 
 const visibleEntries = computed(() =>
