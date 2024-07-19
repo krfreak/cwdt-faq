@@ -9,7 +9,7 @@ Disclaimer: These example PoBs show several different setups and how to gain spe
 like immunities or spell suppression. They might or might not work out of the box.\
 Always check with the calculator whether your own build works.
 
-THESE ARE BUILDS FROM LAST LEAGUE SO MAKE SURE YOU BUILD AROUND THE CHARMS USED!
+# The PoBs provided below are outdated for 3.25.
 
 You can find a lot more example PoBs on the discord!
 

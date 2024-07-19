@@ -91,7 +91,6 @@ If you opted for the CWDT Setup you need to put a Normal CWDT 12 in the top left
 
 Put these wherever they fit.
 
-Hatred + Eternal Blessing Support\
 Phase Run + Increased Duration (+ Enhance Support)\
 Righteous Fire (+ Enhance Support)\
 Flame Dash | Frostblink\

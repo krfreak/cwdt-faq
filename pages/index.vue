@@ -3,7 +3,10 @@
     <article>
       <section>
         <h1 class="text-3xl">Hello fellow CWDT enjoyer!</h1>
-        <p>Does the build still work? YES</p>
+        <p>
+          Does the build still work? According to Mark Roberts yes, but we're still working stuff out. For now don't start the league with it as a transitional
+          build.
+        </p>
         <p>Need to learn something about the build? Head over to the <NuxtLink class="text-blue-600 sm:hover:underline" to="/faq/">FAQ</NuxtLink>.</p>
         <p>
           Need a written guide? Head over to the
