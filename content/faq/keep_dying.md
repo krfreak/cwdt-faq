@@ -18,3 +18,4 @@ description: 'What to do if you keep dying?'
 - Check whether your enemies are possessed by Tormented Spirits with Thief's Grip.
 - Make sure you don't have a source of Alchemist's Genius as it screws with your Olroth's Resolve
 - Check all 'death' tagged FAQ entries.
+- Do you have a cluster jewel with 'Blessed Rebirth'?

@@ -9,79 +9,32 @@ Disclaimer: These example PoBs show several different setups and how to gain spe
 like immunities or spell suppression. They might or might not work out of the box.\
 Always check with the calculator whether your own build works.
 
-# The PoBs provided below are outdated for 3.25.
+# Tanky version based on @fettrecon's T17 farmer
 
-You can find a lot more example PoBs on the discord!
+[https://pobb.in/AfB8fA5hImns](https://pobb.in/AfB8fA5hImns){:target="\_blank"}
 
-# Table of Contents
+# T17 Farmer by @Tricos
 
-1. [Budget](#budget)
-   1. [5d early league](#322-5d-early-league)
-   2. [Level 80/70 POB](#level-8070-pob)
-2. [Low Investment](#low-investment-10-15d)
-3. [High Investment](#high-investment)
-   1. [100d+ 33 Million DPS - Tanky Suppression Version](#100d-33-million-dps---tanky-suppression-version)
-   2. [Gigatank looper - Delve Depth 600 by @fettrecon](#gigatank-looper---delve-depth-600-by-fettrecon)
-   3. [500-1000d and omni variants](#500-1000d)
-4. [Other build variants](#other-build-variants)
+[https://pobb.in/h82iltkSeoVg](https://pobb.in/h82iltkSeoVg){:target="\_blank"}
 
-## Budget
+# 3.26 Budget PoB
 
-### 3.22 ~5d early league
+[https://pobb.in/jPZu0QwZF_3L](https://pobb.in/jPZu0QwZF_3L){:target="\_blank"}
+by @Bastien
 
-[https://pobb.in/BJxb7NmtAndp](https://pobb.in/BJxb7NmtAndp){:target="\_blank"}
+# Tanky T17 farmer by @fettrecon
 
-### Level 80/70 POB
+[https://pobb.in/uHC3VYafAH0M](https://pobb.in/uHC3VYafAH0M){:target="\_blank"}
 
-[https://pobb.in/VkJRFt-dyw6X](https://pobb.in/VkJRFt-dyw6X){:target="\_blank"}
-For Level 70, you can remove Jewel Sockets near Scion Top Area, you will lose resistances, but that's ok
+# Endgame 50 mil dps
 
-## Low Investment 10-20d
+[https://pobb.in/TMR5nxR8pUxU](https://pobb.in/TMR5nxR8pUxU){:target="\_blank"}
+But needs ailment immunity, already is curse immune, also needs lightning damage on ring
 
-[https://pobb.in/LbZ6PrgFxycR](https://pobb.in/LbZ6PrgFxycR){:target="\_blank"}
+# Example Omni Pob - 72 million dps
 
-## High Investment
+[https://pobb.in/vRf8gE_ARs0n](https://pobb.in/vRf8gE_ARs0n){:target="\_blank"}
 
-### 100d+ 33 Million DPS - Tanky Suppression Version
+# Level 70 PoB, Don't Try this, Bad idea
 
-[https://pobb.in/mWqncynGA5G6](https://pobb.in/mWqncynGA5G6){:target="\_blank"}
-
-Cheaper option
-
-```
-Just drop Progenesis, empower 4, awakened gems and the build will suddenly become 50 divines cheaper
-
-You can use Empower Support Level 2, in helm for level 20 skeleton and use a cheap amulet/Pandemonius as well.
-This will save 10 divines in amulet craft.
-Buy cheaper cluster jewels.
-
-And try to get 1270+  ward.
-```
-
-### Gigatank looper - Delve Depth 600 by @fettrecon
-
-[https://pobb.in/sTCRm8zvBqNH](https://pobb.in/sTCRm8zvBqNH){:target="\_blank"}
-
-Budget - At least 300 divines\
-Starting Cost - 50 divines
-
-### 500-1000d
-
-Cost 500-1000 divines
-
-[https://pobb.in/Dfw8jaG13Zc5](https://pobb.in/Dfw8jaG13Zc5){:target="\_blank"}
-
-[https://pobb.in/oBjx9WE-j_st](https://pobb.in/oBjx9WE-j_st){:target="\_blank"} - Omni Version
-
-Progenesis Flask, Ailment Immune, Curse Immune, 2600 life, 1300 Ward, Spell Suppression
-
-```
-Magebane body armour is not required, the timeless jewel can be shifted to right side near Acrobatics keystone
-To make a cheaper version, remove the expensive items.
-Remove Sublime Vision, Forbidden flesh/flame. Remove Double Watchers.
-Buy cheaper Rare Jewels.
-Use Progenesis only when you can afford it, and have 2500 or more life.
-```
-
-Omni Endgame PoB 3.23 - 350 million dps by @B̸̓͌Î̴͠R̵̔̋Ề̴
-[https://pobb.in/0bDz46Eublqq](https://pobb.in/0bDz46Eublqq){:target="\_blank"}
+[https://pobb.in/mNKi9z8_g92Y](https://pobb.in/mNKi9z8_g92Y){:target="\_blank"}
