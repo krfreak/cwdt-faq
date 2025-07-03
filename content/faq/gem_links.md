@@ -14,7 +14,7 @@ description: 'Sugesstions for gem setups depending on setup'
 
 Important: Summon Skeletons has to be in the top left socket. You also need to make sure your Skeletons don't die so either make them super tanky or get a medium cluster jewel with Blessed Rebirth.
 
-Summon Skeletons 11 - Forbidden Rite 1 - Normal CWDT 5
+Summon Skeletons 11 - Forbidden Rite 1 - CWDT 5
 
 #### With 52% CDR
 
@@ -82,10 +82,6 @@ Culling Strike Support\
 Sniper's Mark
 
 ### Gloves
-
-#### Divergent CWDT Setup
-
-If you opted for the CWDT Setup you need to put a Normal CWDT 12 in the top left socket and a Forbidden Rite 1 in the top right socket.
 
 ## Optional Setup
 
