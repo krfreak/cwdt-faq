@@ -32,4 +32,3 @@ Lightning Damage this will generate power charges for you.
 1. Eldritch Implicit on Helmet
 2. Ring Corruption
 3. Abyssal Jewel with Adds # to # Spell Lightning Damage
-4. Tattoo of the Valako Warrior

@@ -6,6 +6,8 @@ description: 'Ways to upgrade your build to gain more damage'
 
 # How To Upgrade For More Damage
 
+The PoBs provided below are outdated for 3.25.
+
 - Min Max Pandemonius - [https://pobb.in/kUPovHpMHvPz](https://pobb.in/kUPovHpMHvPz){:target="\_blank"}
 - Min Max Rare Amulet/Ashes - [https://pobb.in/UCxvPbreyqtT](https://pobb.in/UCxvPbreyqtT){:target="\_blank"}
 
@@ -24,11 +26,9 @@ Upgrade In Any Order!
     -- Awakened Support Gems
     -- Rare Jewels With Crit / Spell Damage -- Use the link in forum guide
     -- Righteous Fire
-    -- Ward items with High Resistance Suffix
+    -- Ward items with High Resistance Suffixes
     -- 4 Flask Upgrade Use Dying Sun 4th flask
     -- Weapon Harvest Enchant Quality For Elemental Damage
-    -- Watcher's With Cold Pen or Cold Damage
-    -- Watcher's With Plus Crit Damage for Hatred
     -- Large clusters upgrade with 3 notables
     -- A Good Timeless Jewel
     -- Rare Ring Upgrade

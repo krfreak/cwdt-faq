@@ -57,8 +57,6 @@ Benchcraft Cold Damage / Critical Strike Chance in Suffix.
 Instead of projectile damage, you can craft Mana Recoup in the prefix.\
 This means you don't need to have Mana Recoup on the ring.
 
-If you have Sublime Vision, Increased Effect of non-damaging ailments is best Suffix from Aisling/Bench
-
 ### Phase 5 - Currency Burn Endgame
 
 Prefix cannot be changed\

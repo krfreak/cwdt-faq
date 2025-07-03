@@ -32,7 +32,7 @@ Ensure it has only 4 modifiers, now fracturing orb and pray
 ### Phase 2 - Crafting Flask Duration & CDR
 
 1. Spam Chaos Orbs till you get 28+ flask duration in suffix,
-2. Buy Aisling and pray for suffix and while keeping the flask duration suffix
+2. Use a Veiled Orb and pray for suffix and while keeping the flask duration suffix
 3. Unveil and pray for CDR
 4. Repeat till you get it
 

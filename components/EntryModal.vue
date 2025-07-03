@@ -8,12 +8,17 @@
       </ContentDoc>
     </div>
     <div class="modal__footer bg-zinc-700">
+      <button class="rounded text-gray-200 hover:bg-green-400 p-2 bg-zinc-900 mr-2" @click="copyURL()">
+        <span v-if="!copied">Link</span>
+        <span v-else>Copied!</span>
+      </button>
       <button class="rounded text-gray-200 hover:bg-red-400 p-2 bg-zinc-900" @click="emit('close')">Close</button>
     </div>
   </dialog>
 </template>
 
 <script setup lang="ts">
+import { useClipboard } from '@vueuse/core';
 const props = defineProps<{
   title: string;
   path: string;
@@ -21,6 +26,15 @@ const props = defineProps<{
 }>();
 const emit = defineEmits(['close']);
 const dialogElement = ref<HTMLDialogElement | null>(null);
+const route = useRoute();
+
+const input = ref(route.hash);
+
+const { text, isSupported, copied, copy } = useClipboard({ source: input });
+
+async function copyURL() {
+  await copy('https://' + window.location.host + props.path);
+}
 
 function closeModal({ target }: MouseEvent): void {
   if (target !== dialogElement.value) return;

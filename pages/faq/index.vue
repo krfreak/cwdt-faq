@@ -13,7 +13,7 @@
             v-for="entry in visibleEntries"
             :id="entry._id"
             :key="entry._id"
-            :title="entry.title"
+            :title="entry.title ?? ''"
             :tags="entry.tags"
             @activate-entry="activateEntry"
           />
@@ -31,12 +31,13 @@
 </template>
 s
 <script setup lang="ts">
-import { Entry } from '~/server/models/entry.model';
+import type { Entry } from '~/server/models/entry.model';
 import { useFilterStore } from '~/stores/filters';
 const filterStore = useFilterStore();
+const route = useRoute();
 
 const { data: entryData, pending } = await useAsyncData(() => {
-  return queryContent().where({ _dir: 'faq' }).only(['title', 'description', '_id', 'tags', '_path']).find();
+  return queryContent('faq').only(['title', 'description', '_id', 'tags', '_path']).find();
 });
 
 const visibleEntries = computed(() =>

@@ -16,7 +16,7 @@ Tier 2 or higher attribute rolls
 ### Phase 2 - Prefix
 
 Craft suffix cannot be changed\
-Veiled chaos Orb, use this
+Veiled Orb
 
 ### Phase 3 - Block
 
