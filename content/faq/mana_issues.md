@@ -9,11 +9,11 @@ description: 'Resolving mana issues'
 #### If you require multiple weapon swaps to start the loop
 
 1. Did you forget to allocate the mana recoup nodes on the tree?
-2. If you ward is low and you have Mind Over Matter allocated, then you will run out of mana. Remove it.
+2. If your ward is low and you have Mind Over Matter allocated, then you will run out of mana. Remove it.
 3. You absolutely need to put the Summon Skeletons into the first socket of your Runic Crown.
 4. If you are using a rare ring use a separate FR 1 + normal CWDT 12 setup in your gloves.
-5. Don't use too many skills in your loop or they eat your mana.
-6. Put the actual skill gems in your weapon and body armour into the last socket. Why? Trigger order of the CWDT gem.
+5. Don't use too many skills in your loop or they will eat your mana.
+6. Put the actual skill gems in your weapon and body armour into a later socket than the Summon Skeletons. Why? Trigger order of the CWDT gem.
 
 ##### Trigger order of CWDT
 
