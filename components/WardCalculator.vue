@@ -32,7 +32,7 @@ const survivalSecrets = ref(false);
 const staffMastery = ref(true);
 
 const survivalSecretsMod = 0.8;
-const flaskEffectMod = 1.25;
+const flaskEffectMod = 1.15;
 
 const calculateWard = () => {
   const flaskValue = 200 * (flaskEffect.value === true ? (survivalSecrets.value === true ? 1.05 : flaskEffectMod) : 1);
