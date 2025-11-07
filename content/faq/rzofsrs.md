@@ -21,7 +21,7 @@ Important:
 
 ```
   11/20% Summon Skeletons
-+  1/23%Summon Raging Spirit
++  1/23% Summon Raging Spirit
 +  5/20% Cast When Damage Taken Support
 +  1/ 0% Swift Affliction Support
 + 21/20% Less Duration Support(can be any combination to reach 60% on the reduction value)
