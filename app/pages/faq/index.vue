@@ -11,8 +11,8 @@
         <TransitionGroup>
           <EntryButton
             v-for="entry in visibleEntries"
-            :id="entry._id"
-            :key="entry._id"
+            :id="entry.id"
+            :key="entry.id"
             :title="entry.title ?? ''"
             :tags="entry.tags"
             @activate-entry="activateEntry"
@@ -22,22 +22,20 @@
     </div>
     <EntryModal
       v-if="filterStore.activeEntry"
-      :path="filterStore.activeEntry._path || ''"
+      :path="filterStore.activeEntry.path || ''"
       :title="filterStore.activeEntry.title || ''"
       :is-open="filterStore.modalOpen"
       @close="filterStore.closeModal"
     />
   </div>
 </template>
-s
+
 <script setup lang="ts">
 import type { Entry } from '~/server/models/entry.model';
-import { useFilterStore } from '~/stores/filters';
 const filterStore = useFilterStore();
-const route = useRoute();
 
-const { data: entryData, pending } = await useAsyncData(() => {
-  return queryContent('faq').only(['title', 'description', '_id', 'tags', '_path']).find();
+const { data: entryData, pending } = await useAsyncData('faq-list', () => {
+  return queryCollection('faq').select('id', 'title', 'description', 'path', 'tags').all();
 });
 
 const visibleEntries = computed(() =>
@@ -49,7 +47,7 @@ const tags = computed(() => {
 });
 
 function activateEntry(id: string) {
-  const entry = (entryData.value?.find((a) => a._id === id) ?? null) as Entry | null;
+  const entry = (entryData.value?.find((a) => a.id === id) ?? null) as Entry | null;
 
   filterStore.setActiveEntry(entry);
   filterStore.openModal();

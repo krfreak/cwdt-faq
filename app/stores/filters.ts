@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { Entry } from '~/server/models/entry.model';
+import type { Entry } from '~/server/models/entry.model';
 
 export const useFilterStore = defineStore('filters', {
   state: () => ({
@@ -10,10 +10,10 @@ export const useFilterStore = defineStore('filters', {
   }),
   actions: {
     async loadEntries() {
-      const { data: entryData } = await useAsyncData('faq', () => {
-        return queryContent().where({ _dir: 'faq' }).only(['title', 'description', '_id', 'tags', '_path']).find();
+      const { data: entryData } = await useAsyncData('faq-entries', () => {
+        return queryCollection('faq').select('id', 'title', 'description', 'path', 'tags').all();
       });
-      this.entries = entryData.value as Entry[];
+      this.entries = (entryData.value ?? []) as Entry[];
     },
     addActiveTag(tag: string) {
       this.activeTags.push(tag);
@@ -30,7 +30,7 @@ export const useFilterStore = defineStore('filters', {
       else return [];
     },
     findById(id: string): Entry | undefined {
-      return this.entries.find((a) => a._id === id);
+      return this.entries.find((a) => a.id === id);
     },
     closeModal() {
       this.modalOpen = false;

@@ -11,24 +11,17 @@
       >
         {{ craft.title }}
       </button>
-      <CraftPanel v-for="craft in crafts" :key="craft._id" :title="craft.title" :path="craft._path"></CraftPanel>
+      <CraftPanel v-for="craft in crafts" :key="craft.id" :title="craft.title" :path="craft.path"></CraftPanel>
     </div>
     <div v-else>Loading content...</div>
   </div>
 </template>
 <script setup lang="ts">
 function scrollToTarget(id: string) {
-  const { navBottomLink, navKeyFromPath } = useContentHelpers();
-  const yOffset = 0;
   const el = document.getElementById(id);
   el?.scrollIntoView({ behavior: 'smooth' });
-  // if (el) {
-  //   const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-  //   window.scrollTo({ top: y, behavior: 'smooth' });
-  // }
-  // #window.location.hash = el.
 }
 const { data: crafts, pending } = await useLazyAsyncData('crafts', () => {
-  return queryContent().where({ _dir: 'crafts' }).only(['title', 'description', '_id', 'tags', '_path']).find();
+  return queryCollection('crafts').select('id', 'title', 'description', 'path', 'tags').all();
 });
 </script>

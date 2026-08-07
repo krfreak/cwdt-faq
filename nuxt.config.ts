@@ -1,19 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ['@/assets/css/main.scss', '@/assets/css/markdown.scss'],
+  compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/eslint-module', '@pinia/nuxt', '@nuxtjs/tailwindcss', '@nuxt/content'],
+  css: ['~/assets/css/main.scss', '~/assets/css/markdown.scss'],
+  modules: ['@nuxt/content', '@nuxt/eslint', '@pinia/nuxt', '@nuxtjs/tailwindcss', '@vueuse/nuxt'],
   content: {
-    markdown: {
+    // Was `content.markdown.anchorLinks` under Content v2.
+    renderer: {
       anchorLinks: false,
     },
-    documentDriven: true,
   },
   runtimeConfig: {
     quiet: false,
   },
-  experimental: {
-    watcher: 'chokidar',
-  },
-  pages: true,
 });

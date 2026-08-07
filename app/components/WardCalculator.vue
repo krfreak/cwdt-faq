@@ -31,7 +31,6 @@ const totalWard = ref(0);
 const survivalSecrets = ref(false);
 const staffMastery = ref(true);
 
-const survivalSecretsMod = 0.8;
 const flaskEffectMod = 1.15;
 
 const calculateWard = () => {

@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { useFilterStore } from '~/stores/filters';
 const filterStore = useFilterStore();
-const props = defineProps<{
+defineProps<{
   tags: string[];
 }>();
 

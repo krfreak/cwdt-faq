@@ -1,11 +1,8 @@
 <template>
   <dialog ref="dialogElement" class="modal bg-zinc-900 text-gray-200 text-left" @click="closeModal" @keyup.esc="emit('close')" @keydown.esc="emit('close')">
     <div class="modal__content overflow-y-auto">
-      <ContentDoc :path="path" class="markdown-body break-word hyphens-auto">
-        <template #not-found>
-          <p>No content found.</p>
-        </template>
-      </ContentDoc>
+      <ContentRenderer v-if="page" :value="page" class="markdown-body break-word hyphens-auto" />
+      <p v-else>No content found.</p>
     </div>
     <div class="modal__footer bg-zinc-700">
       <button class="rounded text-gray-200 hover:bg-green-400 p-2 bg-zinc-900 mr-2" @click="copyURL()">
@@ -30,7 +27,13 @@ const route = useRoute();
 
 const input = ref(route.hash);
 
-const { text, isSupported, copied, copy } = useClipboard({ source: input });
+const { copied, copy } = useClipboard({ source: input });
+
+const { data: page } = await useAsyncData(
+  () => `faq-entry-${props.path}`,
+  () => queryCollection('faq').path(props.path).first(),
+  { watch: [() => props.path] },
+);
 
 async function copyURL() {
   await copy('https://' + window.location.host + props.path);
