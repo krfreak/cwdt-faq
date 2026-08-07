@@ -1,6 +1,6 @@
 <template>
   <div class="content min-h-screen flex flex-col justify-center items-center m-2 mr-6 sm:m-5 sm:min-w-fit">
-    <h2 class="text-2xl font-semibold mb-2 text-center">Does the build work in 3.27?</h2>
+    <h2 class="text-2xl font-semibold mb-2 text-center">Does the build work in 3.29?</h2>
     <div class="text-green-600 fomp font-extrabold text-center">YES</div>
   </div>
 </template>
