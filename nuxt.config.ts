@@ -34,6 +34,18 @@ export default defineNuxtConfig({
         // added here or it will be blocked.
         'frame-src': ["'self'", 'https://www.youtube-nocookie.com', 'https://returnx.github.io'],
       },
+      // In production nuxt-security's OWASP preset locks these features to `()` (nobody,
+      // not even same-origin). That Permissions-Policy header governs delegation into
+      // iframes too, so it silently overrides the YouTube player's own `allow` attribute
+      // and breaks autoplay/fullscreen controls. Only re-open the features the YouTube
+      // embed actually requests, and only for 'self' and the player's own origin.
+      permissionsPolicy: {
+        accelerometer: ['self', '"https://www.youtube-nocookie.com"'],
+        autoplay: ['self', '"https://www.youtube-nocookie.com"'],
+        'encrypted-media': ['self', '"https://www.youtube-nocookie.com"'],
+        gyroscope: ['self', '"https://www.youtube-nocookie.com"'],
+        'picture-in-picture': ['self', '"https://www.youtube-nocookie.com"'],
+      },
     },
   },
   content: {
