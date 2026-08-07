@@ -23,6 +23,7 @@
     "@vueuse/nuxt": "^14.4.0",
     "better-sqlite3": "^13.0.3",
     "nuxt": "^4.5.2",
+    "nuxt-security": "^2.6.0",
     "pinia": "^4.0.2",
     "pm2": "^7.0.3",
     "sass": "^1.102.0",
