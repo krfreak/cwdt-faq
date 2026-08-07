@@ -12,6 +12,11 @@ export default defineNuxtConfig({
     // sure the proxy overwrites that header rather than passing a client-supplied one.
     rateLimiter: false,
     headers: {
+      // Default is 'credentialless', which blocks cross-origin iframes whose origin does
+      // not itself enforce COEP - that breaks the YouTube embed on the home page and the
+      // calculator iframe. Content v3's client-side SQLite opens an in-memory database
+      // (`new sqlite3.oo1.DB()`), never OPFS, so it does not need cross-origin isolation.
+      crossOriginEmbedderPolicy: 'unsafe-none',
       contentSecurityPolicy: {
         // These are nuxt-security's defaults plus 'wasm-unsafe-eval'. The whole array
         // replaces the default, so the defaults have to be repeated here.
@@ -23,6 +28,11 @@ export default defineNuxtConfig({
         // Content v3 loads its SQLite worker from a same-origin URL. Without this,
         // worker-src falls back to script-src, where 'strict-dynamic' blocks it.
         'worker-src': ["'self'"],
+        // The default config sets neither frame-src nor default-src, which leaves frames
+        // unrestricted. Pin them to the two origins actually embedded: the YouTube player
+        // on the home page and the ward calculator on /calculator. Any new embed must be
+        // added here or it will be blocked.
+        'frame-src': ["'self'", 'https://www.youtube-nocookie.com', 'https://returnx.github.io'],
       },
     },
   },
