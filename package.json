@@ -7,6 +7,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "pob:pack": "node pob-wasm/pack.mjs",
+    "pob:check": "node --experimental-strip-types pob-wasm/check-node.mjs",
+    "pob:test": "node --experimental-strip-types pob-wasm/test-loop.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "postinstall": "nuxt prepare"

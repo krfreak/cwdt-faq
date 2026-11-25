@@ -56,6 +56,7 @@ const navigation = [
   { name: 'Example PoBs', href: '/pobs' },
   { name: 'Calculator', href: '/calculator' },
   { name: 'Tools', href: '/tools' },
+  { name: 'PoB Checker', href: '/pobcheck' },
   { name: 'Does it still work?', href: '/doesitwork' },
 ];
 </script>

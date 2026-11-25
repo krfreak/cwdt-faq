@@ -1,0 +1,22 @@
+--- a/src/lstrlib.c
++++ b/src/lstrlib.c
+@@ -915,11 +915,15 @@
+           break;
+         }
+         case 'd': case 'i': {
++          /* pob-wasm: LuaJIT formats any number with %d. PoB relies on that in breakdown
++             text (e.g. inf from divisions by zero), so clamp instead of raising an error. The
++             explicit range check also avoids an out-of-range float->int conversion. */
+           lua_Number n = luaL_checknumber(L, arg);
+-          LUA_INTFRM_T ni = (LUA_INTFRM_T)n;
+-          lua_Number diff = n - (lua_Number)ni;
+-          luaL_argcheck(L, -1 < diff && diff < 1, arg,
+-                        "not a number in proper range");
++          LUA_INTFRM_T ni;
++          if (n != n) ni = 0;
++          else if (n >= 9.2233720368547758e18) ni = (LUA_INTFRM_T)9223372036854775807LL;
++          else if (n <= -9.2233720368547758e18) ni = (LUA_INTFRM_T)(-9223372036854775807LL - 1);
++          else ni = (LUA_INTFRM_T)n;
+           addlenmod(form, LUA_INTFRMLEN);
+           nb = sprintf(buff, form, ni);
+           break;
