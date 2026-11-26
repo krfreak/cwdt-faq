@@ -91,20 +91,25 @@ Any minion that dies on its own sets off Heartbound Loop, not only Skeletons. Su
 - More chains start from extra triggers (Raise Zombie of Falling impacts, enemy hits, a second minion
   type such as Skeletons whose deaths land between the spirits'). Chains **collide**: a death that
   lands while the CWDT is on cooldown from another chain is lost and ends that chain.
-- So a full pipeline packs chains at least one cooldown apart within a minion duration: with duration
-  D and cooldown c ticks, at most `floor(D / c)` chains, i.e. one trigger every `D / floor(D / c)`
-  ticks. **Full speed (one trigger per cooldown) needs D to be a whole multiple of c**: 40-tick
-  spirits with a 6-tick cooldown give 6.67 ticks per trigger, 42-tick spirits give 6.
-  (Tested in the loop simulation; this is likely what the FAQ's "60% reduction" target aims at.)
+- **A full pipeline runs at the cooldown breakpoint** (Tim, 2026-11-26): triggers only happen on server
+  ticks, so an average between two tick counts (e.g. 6.06 ticks) is not real and falls back to the
+  breakpoint; PoB shows the same (Ice Spear 5.05/s at 27% CDR). The checker treats a sustained
+  pipeline with at least two chains (longest duration ≥ 2 × cooldown) as one trigger per cooldown.
+  Do not warn about "wasted CDR" or duration multiples there. With only one chain (duration between
+  1× and 2× the cooldown) the loop really runs at the duration's tick count.
 - The checker reports such loops as a range: one chain (lower bound, the loop keeps itself running
-  from a weapon swap) up to the full pipeline (simulated by seeding a trigger every cooldown).
+  from a weapon swap) up to the full pipeline.
 - Raise Zombie of Falling's fall time is not in PoB, so its deaths are left out of the timing; it can
   only add chains.
 - PoB only computes the Heartbound self-hit for Summon Skeletons (`SelfHitDamage`); for other minions
   `pob-wasm/extract.lua` applies PoB's `applyDmgTakenConversion` to the rings' combined damage (same
   number as for Skeletons in the same build).
-- Main-skill CWDTs see the deaths spread over time, and damage arriving while they are on cooldown is
-  lost, so they can fire on only part of the loop triggers (h82i: 67%) even with enough damage per cycle.
+- **Main-skill CWDTs only need a cycle's damage to reach their threshold** (Tim, 2026-11-26: "if it
+  works it works", extra damage per cycle is not a problem). The checker gives CWDTs the loop does not
+  depend on (body armour, curses) a per-cycle budget: every cycle when the cycle's damage reaches the
+  threshold, else every n-th cycle (n cycles of damage, or a cooldown longer than a cycle). Do not
+  model the phase of hits inside a cycle for them (that produced a false "66% of cycles" on
+  maxroll.gg/poe/pob/8s8fb90g).
 
 ## 3. Thresholds and gem levels
 
@@ -149,9 +154,24 @@ Any minion that dies on its own sets off Heartbound Loop, not only Skeletons. Su
   consume charges; Wickerman **Greater Shaper's Head** "Utility Flasks gain (1–2) Charge every 3 seconds"
   (3.30 tree only; replaces Pathfinder's 1/s only partly, about −11% to −23% total gain).
 - Increased flask charges gained multiplies every source.
-- Calc's flask simulation (ported in the checker): 30 ticks/s, gains every 3 s / 5 s, reuse at the end
-  of effect or use when full; it **ignores** the chance to not consume charges. The checker downgrades a
-  failure to a warning when that chance would cover it on average.
+- Charges come from killing monsters (not modelled: extra in maps) and from timed mods ("Flasks gain
+  x charges every n seconds": Pathfinder, The Traitor, Wickerman items, the body armour enchant). PoB's
+  numbers hold the timed ones.
+- The two auto-use mods (Instilling Orb; mutually exclusive with Enkindling, which the build never uses):
+  - **"Reused at the end of this Flask's effect"** (Olroth): fires only when its effect runs out, so less
+    often; short on charges at that moment, it is not reused.
+  - **"Used when Charges reach full"**: fires as soon as the flask fills up, regardless of its effect.
+- **Use Calc's flask simulation as is** (ported in the checker): 30 ticks/s, gains every 3 s / 5 s,
+  the two modes above, and it **ignores** the chance to not consume charges (cannot be relied on).
+  Tim rejected extra modelling (random charge rolls, timer phases, uptime percentages): "the
+  calculator already handles that by approximation".
+- PoB's flask tooltip ("Effective flask stats", `ItemsTab.lua`) shows "Flask uptime: X% average, Y%
+  minimum". Minimum = charges of whole 3 s / 5 s intervals inside one duration ÷ charges used (no
+  luck). Average = all charges over a duration ÷ (charges used × (1 − chance to not consume)), capped
+  at 100%. Cross-checked on 16 example builds (2026-11-26): every flask PoB shows at 100% passes the
+  calculator simulation; with a minimum below 100% the simulation usually fails (Olroth 58–85%), but
+  some pass (Olroth 93–97%, one Dying Sun at 84%: the cap at full charges and the 15 s cycle make it
+  less strict than PoB's minimum). The checker shows PoB's line in each flask's detail; the verdict stays the calculator's.
 - PoB only applies flask effects (ward, chaos resistance from Amethyst/Progenesis) when the flask is
   **ticked** in PoB. The checker ticks all equipped flasks, as the FAQ's PoB setup asks.
 

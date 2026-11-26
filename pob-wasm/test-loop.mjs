@@ -80,9 +80,9 @@ t('SRS only, fresh start: one chain, loop runs at the spirit duration', { cwdts:
   assert.equal(r.sustained, true);
   assert.equal(r.periodTicks, 40);
 });
-t('SRS only, pipeline full: 40-tick spirits pack 6 chains into a 6-tick cooldown', { cwdts: [loop([spirits()], { castsFR: false, threshold: 448.8 })], frDamage: 0, start: 'saturated' }, (r) => {
+t('SRS only, pipeline full: triggers fall back to the cooldown breakpoint', { cwdts: [loop([spirits()], { castsFR: false, threshold: 448.8 })], frDamage: 0, start: 'saturated' }, (r) => {
   assert.equal(r.sustained, true);
-  assert.ok(r.periodTicks > 6.5 && r.periodTicks < 6.8, `period ${r.periodTicks}`);
+  assert.equal(r.periodTicks, 6);
 });
 t('SRS duration a multiple of the cooldown: pipeline reaches the cooldown rate', { cwdts: [loop([spirits({ durationTicks: 42 })], { castsFR: false, threshold: 448.8 })], frDamage: 0, start: 'saturated' }, (r) => {
   assert.equal(r.sustained, true);
@@ -93,9 +93,17 @@ t('Skeletons + SRS (FAQ setup), fresh start: sustained on one chain', faqSetup, 
   assert.equal(r.sustained, true);
   assert.ok(r.periodTicks > 30, `period ${r.periodTicks}`);
 });
-t('Skeletons + SRS (FAQ setup), pipeline full: close to the cooldown rate', { ...faqSetup, start: 'saturated' }, (r) => {
+t('Skeletons + SRS (FAQ setup), pipeline full: cooldown rate, Ice Spear every cycle', { ...faqSetup, start: 'saturated' }, (r) => {
   assert.equal(r.sustained, true);
-  assert.ok(r.periodTicks < 6.2, `period ${r.periodTicks}`);
+  assert.equal(r.periodTicks, 6);
+  assert.equal(r.firesPerCycle.body, 1);
+});
+t('Skeletons + SRS, pipeline full, body short of one cycle: every 2 cycles', { ...faqSetup, cwdts: [faqSetup.cwdts[0], body({ threshold: 3000 })], start: 'saturated' }, (r) => {
+  assert.equal(r.sustained, true);
+  assert.equal(r.firesPerCycle.body, 0.5);
+});
+t('duration one tick over the cooldown (one chain only): no pipeline, loop at duration pace', { cwdts: [loop([skeletons({ durationTicks: 7 })]), body()], frDamage: 1000, start: 'saturated' }, (r) => {
+  assert.equal(r.periodTicks, 7);
 });
 t('minions that die during the cooldown are lost, but others keep the loop going', {
   cwdts: [loop([skeletons({ durationTicks: 3, hitDamage: 735 }), spirits()], { castsFR: false, threshold: 690.2 })],

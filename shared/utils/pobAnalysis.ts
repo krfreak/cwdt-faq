@@ -71,6 +71,13 @@ const ticksOf = (s: number) => Math.round(s / TICK);
 
 type FlaskSimResult = { kind: 'works' } | { kind: '30min' } | { kind: 'fails'; afterSeconds: number };
 
+/**
+ * Charges come from timed sources only (every 3 and every 5 seconds); kills add more in maps. Like the
+ * calculator, it ignores chances to not consume charges: they are random and cannot be relied on.
+ * useWhenFull: "Used when Charges reach full" fires as soon as the flask is full, even while active.
+ * Otherwise ("Reused at the end of this Flask's effect") it fires only when its effect runs out, and
+ * stays off if it lacks the charges at that moment.
+ */
 function simulateFlask(per3s: number, per5s: number, maxCharges: number, chargesUsed: number, durationTicks: number, useWhenFull: boolean): FlaskSimResult {
   // Server ticks, 30 per second
   const three = 3 * 30;
@@ -245,14 +252,39 @@ export function simulateLoop(p: LoopParams): LoopSimResult {
   for (const c of state) firesPerCycle[c.key] = per(inWindow(c.fires));
   const hitsPerCycle: Record<string, number> = {};
   for (const [key, ticks] of hitTicks) hitsPerCycle[key] = per(inWindow(ticks));
-  return {
-    sustained,
-    stopReason,
-    periodTicks: cycles ? (to - from) / cycles : 0,
-    firesPerCycle,
-    hitsPerCycle,
-    frHitsPerCycle: per(inWindow(frHitTicks)),
-  };
+  let periodTicks = cycles ? (to - from) / cycles : 0;
+  let frHitsPerCycle = per(inWindow(frHitTicks));
+
+  // A full pipeline (at least two chains of minions alive at once) has deaths arriving all the time,
+  // so the loop CWDT triggers as soon as it comes off cooldown: triggers happen on server ticks, and
+  // an average between two tick counts falls back to the cooldown breakpoint. Every trigger's
+  // minions die once per cycle, and every CWDT the loop depends on fires with it.
+  const longest = loopCwdt.summons.reduce((a, m) => Math.max(a, m.durationTicks), 0);
+  if (sustained && p.start === 'saturated' && longest >= 2 * loopCwdt.cooldownTicks && periodTicks > loopCwdt.cooldownTicks) {
+    periodTicks = loopCwdt.cooldownTicks;
+    frHitsPerCycle = 0;
+    for (const c of state) {
+      if (!c.summons.length && !c.castsFR) continue;
+      firesPerCycle[c.key] = 1;
+      for (const m of c.summons) hitsPerCycle[m.key] = m.hitsPerSummon;
+      if (c.castsFR && p.frDamage > 0) frHitsPerCycle++;
+    }
+  }
+
+  // CWDTs the loop does not depend on (the main skill, curses, auras) only need the damage of a
+  // cycle to reach their threshold: they trigger every cycle when it does, and every n-th cycle when
+  // it takes n cycles of damage, or when their own cooldown is longer than a cycle.
+  if (sustained && periodTicks > 0) {
+    const damagePerCycle =
+      state.flatMap((c) => c.summons).reduce((a, m) => a + (hitsPerCycle[m.key] ?? 0) * m.hitDamage, 0) + frHitsPerCycle * p.frDamage;
+    for (const c of state) {
+      if (c.summons.length || c.castsFR) continue;
+      const cyclesForDamage = damagePerCycle > 0 ? Math.ceil(c.threshold / damagePerCycle - 1e-9) : Infinity;
+      const cyclesForCooldown = Math.ceil(c.cooldownTicks / periodTicks - 1e-9);
+      firesPerCycle[c.key] = 1 / Math.max(1, cyclesForDamage, cyclesForCooldown);
+    }
+  }
+  return { sustained, stopReason, periodTicks, firesPerCycle, hitsPerCycle, frHitsPerCycle };
 }
 
 // ---- pantheon ----
@@ -610,7 +642,7 @@ export function analyzePob(facts: PobFacts): PobCheckResult {
     if (sim.sustained && body && bodyRate < 0.999 && !borderline) {
       add(
         loopState === 'warn' ? 'warning' : 'error',
-        `${body.skill.name} only triggers ${cadence(bodyRate)}${pipeline ? ` (${fmt(loopsPerSecond * bodyRate, 2)}/s)` : ''}: the ${body.group.slot} CWDT needs ${fmt(bodyThreshold, 1)} damage per cycle and gets ${fmt(loopDamage)} (${signed(loopDamage - bodyThreshold)})${pipeline ? ', and damage arriving while it is on cooldown is lost' : ''}. ${fr ? 'Increase life or lower chaos resistance, or lower the CWDT level.' : 'Lower the CWDT level, or add Forbidden Rite for more self-damage.'}`,
+        `${body.skill.name} only triggers ${cadence(bodyRate)}${pipeline ? ` (${fmt(loopsPerSecond * bodyRate, 2)}/s)` : ''}: the ${body.group.slot} CWDT needs ${fmt(bodyThreshold, 1)} damage per cycle and gets ${fmt(loopDamage)} (${signed(loopDamage - bodyThreshold)}). ${fr ? 'Increase life or lower chaos resistance, or lower the CWDT level.' : 'Lower the CWDT level, or add Forbidden Rite for more self-damage.'}`,
         LINKS.loopSpeed,
       );
     }
@@ -937,30 +969,27 @@ function flaskMargin(flask: PobFlask, facts: PobFacts, critical: boolean, add: (
   const per3s = (flask.chargesPerSecond ?? 0) * 3 * gain;
   const per5s = (flask.chargesPerSecondPerEmptySlot ?? 0) * 5 * facts.flaskSlotsEmpty * gain;
   const reuse = flask.lines.some((l) => /Reused at the end of this Flask's effect/.test(l));
-  const whenFull = flask.lines.some((l) => /Used when Charges reach full/.test(l));
-  const result = simulateFlask(per3s, per5s, max, used, Math.floor(duration * 30), whenFull && !reuse);
+  const whenFull = !reuse && flask.lines.some((l) => /Used when Charges reach full/.test(l));
+  const result = simulateFlask(per3s, per5s, max, used, Math.floor(duration * 30), whenFull);
   const gainedPerSecond = per3s / 3 + per5s / 5;
   const usedPerSecond = duration > 0 ? used / duration : Infinity;
-  const uptime = Number.isFinite(usedPerSecond) && usedPerSecond > 0 ? (gainedPerSecond / usedPerSecond) * 100 : 0;
+  const mode = reuse ? 'reused at the end of its effect' : whenFull ? 'used when charges reach full' : 'no auto-use enchant';
+  // The "Flask uptime" line of PoB's flask tooltip (ItemsTab, "Effective flask stats"): minimum = the
+  // charges of whole 3 s / 5 s intervals inside one duration, without luck; average = all charges over
+  // a duration against the charges used, with the chance to not consume charges
+  const perSecond3 = per3s / 3;
+  const perSecond5 = per5s / 5;
+  const chance = Math.min(facts.flaskChanceNotConsume, 100);
+  const pobMin = used > 0 ? Math.min((((duration - (duration % 3)) * perSecond3 + (duration - (duration % 5)) * perSecond5) / used) * 100, 100) : 100;
+  const pobAvg = used > 0 && chance < 100 ? Math.min((((perSecond3 + perSecond5) * duration) / ((used * (100 - chance)) / 100)) * 100, 100) : 100;
+  const pobUptime = pobMin < 100 && chance < 100 ? `${Math.floor(pobAvg)}% average, ${Math.floor(pobMin)}% minimum` : '100%';
 
-  // Like the calculator, the simulation ignores chances to not consume charges (Pathfinder). When that
-  // chance would cover the shortfall on average, the flask is on a knife's edge rather than broken.
-  const chance = Math.min(facts.flaskChanceNotConsume, 99) / 100;
-  const uptimeWithChance = uptime / (1 - chance);
-  const savedByChance = result.kind === 'fails' && chance > 0 && uptimeWithChance >= 100;
-
-  const state: MarginState = result.kind === 'works' ? 'good' : result.kind === '30min' || savedByChance ? 'warn' : 'bad';
+  const state: MarginState = result.kind === 'works' ? 'good' : result.kind === '30min' ? 'warn' : 'bad';
   const value = result.kind === 'works' ? 'FLASK WORKS' : result.kind === '30min' ? 'Stable for at least 30 min' : `Fails after ${fmt(result.afterSeconds, 1)}s`;
-  if (savedByChance) {
-    add(
-      'warning',
-      `${flask.name} runs out of charges after ${fmt(result.afterSeconds, 1)}s without luck: uptime ${fmt(uptime, 0)}%, about ${fmt(uptimeWithChance, 0)}% with your ${fmt(chance * 100)}% chance to not consume charges. More flask charges or duration would make it reliable.`,
-      LINKS.flasks,
-    );
-  } else if (result.kind === 'fails') {
+  if (result.kind === 'fails') {
     add(
       critical ? 'error' : 'warning',
-      `${flask.name} runs out of charges after ${fmt(result.afterSeconds, 1)}s (uptime ${fmt(uptime, 0)}%). Gain more flask charges or duration, or use fewer charges.`,
+      `${flask.name} (${mode}) runs out of charges after ${fmt(result.afterSeconds, 1)}s (PoB flask uptime: ${pobUptime})${critical ? ', and the ward loop needs it up at all times' : ''}. Gain more flask charges or duration, or use fewer charges.`,
       LINKS.flasks,
     );
   }
@@ -968,6 +997,6 @@ function flaskMargin(flask: PobFlask, facts: PobFacts, critical: boolean, add: (
     label: flask.name,
     value,
     state,
-    detail: `uptime ${fmt(uptime, 1)}% · gains ${fmt(gainedPerSecond, 2)}/s vs uses ${fmt(usedPerSecond, 2)}/s · ${fmt(duration, 2)}s, ${fmt(used, 1)} of ${fmt(max)} charges${reuse ? '' : whenFull ? ' · used when full' : ' · no auto-use enchant'}`,
+    detail: `${mode} · PoB flask uptime: ${pobUptime} · gains ${fmt(gainedPerSecond, 2)}/s vs uses ${fmt(usedPerSecond, 2)}/s · ${fmt(duration, 2)}s, ${fmt(used, 1)} of ${fmt(max)} charges · timed charge gain only, kills add more`,
   };
 }
